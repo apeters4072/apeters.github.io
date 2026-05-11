@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Andrew Peters • Portfolio</title>
+
+  <!-- CSS libraries -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg sticky-top bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="#home">Andrew Peters</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#nav"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="nav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skills">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="btn btn-resume nav-link text-white"
+              href="docs/AndrewPeters_Resume.pdf"
+              download
+            >
+              Download Resume
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header Background -->
+  <header id="home" class="hero d-flex align-items-center">
+    <div class="container text-center">
+      <p class="eyebrow">GIS • Remote Sensing • Data Visualization</p>
+      <h1 class="display-5 fw-bold">Hi, I’m Andrew.</h1>
+      <p class="lead mb-4">
+        <span id="typed"></span
+        ><span class="cursor" aria-hidden="true">|</span>
+      </p>
+      <a class="btn btn-primary" href="#projects">
+        Explore <i class="bi bi-arrow-down ms-1"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- ========== Projects ========== -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">
+          A Showcase of My Work.
+        </p>
+      </div>
+
+      <!-- filters -->
+      <div class="filters text-center mb-4">
+        <button class="btn btn-filter active" data-filter="all">All</button>
+        <button class="btn btn-filter" data-filter="remote">Remote Sensing</button>
+        <button class="btn btn-filter" data-filter="gis-analysis">GIS Analysis</button>
+        <button class="btn btn-filter" data-filter="data-science">Data Science</button>
+        <button class="btn btn-filter" data-filter="web">Web Mapping &amp; Viz</button>
+        <button class="btn btn-filter" data-filter="python">Python Tools</button>
+        <button class="btn btn-filter" data-filter="school">School Work</button>
+      </div>
+
+      <!-- PROJECT GRID: every project card lives inside this row -->
+      <div class="row g-4">
+
+        <!-- Food access (FIRST card) -->
+        <div class="col-md-6 col-lg-4 project-card" data-category="gis-analysis web school">
+          <div class="card h-100 border-0 shadow-sm">
+            <img
+              src="images/Composite_Map.png"
+              class="card-img-top"
+              alt="Composite food access risk map preview"
+            />
+            <div class="card-body d-flex flex-column text-center">
+              <h5 class="card-title mb-2">Food Access &amp; Vulnerable Populations</h5>
+              <p class="text-secondary small mb-3">
+                Mapping composite food access risk in Bolivar and Washington
+                Counties, Mississippi by combining drive-time accessibility with
+                demographic vulnerability.
+              </p>
+              <a
+                class="btn btn-sm btn-primary mt-auto"
+                href="projects/delta_food_access.html"
+                target="_blank"
+                rel="noopener"
+              >
+                View Project
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!--Discord Job Bot-->
+        <div class="col-md-6 col-lg-4 project-card" data-category="python">
+          <div class="card h-100 border-0 shadow-sm">
+            <img
+              src="images/Discord_Job_Preview.png"
+              class="card-img-top"
+              alt="Discord Job Bot preview"
+            />
+            <div class="card-body d-flex flex-column text-center">
+              <h5 class="card-title mb-2">Discord Job Bot (Python Automation)</h5>
+              <p class="text-secondary small mb-3">A Python-based Discord bot that automatically searches job platforms, filters results, and posts new GIS-related openings to a Discord channel on a schedule.</p>
+              <a
+                class="btn btn-sm btn-primary mt-auto"
+                href="projects/discord_job_bot.html"
+                target="_blank"
+                rel="noopener"
+              >
+                View Project
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jane Austen -->
+        <div class="col-md-6 col-lg-4 project-card" data-category="school web">
+          <div class="card h-100 border-0 shadow-sm">
+            <img
+              src="images/JaneAusten_Preview.PNG"
+              class="card-img-top"
+              alt="Jane Austen’s England preview"
+            />
+            <div class="card-body d-flex flex-column text-center">
+              <h5 class="card-title mb-2">Jane Austen’s England</h5>
+              <p class="text-secondary small mb-3">
+                Exploring real and fictional locations in Austen’s novels through
+                maps and geospatial storytelling.
+              </p>
+              <a
+                class="btn btn-sm btn-primary mt-auto"
+                href="projects/jane_austen.html"
+                target="_blank"
+                rel="noopener"
+              >
+                View Project
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- TEMPLATE for future projects
+             To add a new one at the END, paste another block like this below.
+             To add one at the BEGINNING, paste it ABOVE the Food Access card. -->
+        <!--
+        <div class="col-md-6 col-lg-4 project-card" data-category="gis-analysis">
+          <div class="card h-100 border-0 shadow-sm">
+            <img
+              src="images/preview-image.jpg"
+              class="card-img-top"
+              alt="Your Project Title"
+            />
+            <div class="card-body d-flex flex-column text-center">
+              <h5 class="card-title mb-2">Your Project Title</h5>
+              <p class="text-secondary small mb-3">One-sentence description.</p>
+              <a
+                class="btn btn-sm btn-primary mt-auto"
+                href="projects/your_project.html"
+                target="_blank"
+                rel="noopener"
+              >
+                View Project
+              </a>
+            </div>
+          </div>
+        </div>
+        -->
+
+      </div><!-- /row g-4 -->
+    </div>
+  </section>
+
+  <!-- ========== Skills ========== -->
+  <section id="skills" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-subtitle">Tools &amp; technologies I use regularly.</p>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-6 col-md-3">
+          <div class="skill">ArcGIS Pro</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="skill">QGIS</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="skill">Python (geopandas, rasterio)</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="skill">SQL</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="skill">Remote Sensing</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="skill">ArcGIS Online / Exp. Builder</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="skill">Cartography &amp; Viz</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="skill">HTML/CSS</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== About ========== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-md-5 text-center">
+          <img
+            src="images/manel_portrait2.jpg"
+            alt="Portrait of Manel Capangpangan"
+            class="portrait-img"
+          />
+        </div>
+        <div class="col-md-7">
+          <h2 class="section-title">About Me</h2>
+          <p class="mb-3">
+            I am a former United States Marine with over 4 years of experience in Geospatial Intelligence 
+            (GEOINT) and Imagery Intelligence (IMINT). My time in the Marine Corps provided me a varied 
+            background; consisting of imagery exploitation, terrain modeling and analysis, and artificial 
+            intelligence (AI). Through various multinational and joint collaborations, I was able to 
+            exercise my skills in multidiscipline integration in analytical and dynamic workflows. My 
+            experiences have honed my skills as a proven leader through challenging circumstances by 
+            leveraging concise communication and excellent interpersonal skills!
+          </p>
+          <p>
+            However, GIS is not just business for me. I am currently attending Delta State University for
+            their Geospatial Analysis and Intelligence program, and am enjoying the academic perspective to 
+            GIS. Personally, I have a love for cartography and work on creative and unique maps in my freetime. 
+            Additionally, Synthetic Aperture Radar (SAR) imagery has always interested me, and I am always 
+            seeking opportunities to increase my depth of knowledge around that technology.
+          </p>
+          <p class="text-secondary small mb-0">
+            Relevant courses: GIS Programming • Remote Sensing • Cartography &amp;
+            Visualization • Case Studies.<br />
+            Interests: geospatial data science, disaster response, and community
+            mapping.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Contact / Footer ========== -->
+  <footer id="contact" class="footer">
+    <div class="container text-center">
+      <h2 class="mb-3">Let’s Connect</h2>
+      <p class="mb-4">
+        <a href="mailto:apeters4072@gmail.com">
+          apeters4072@gmail.com
+        </a>
+        •
+        <a href="tel:+17064149830">
+          +1 (706)414-9830
+        </a>
+      </p>
+
+      <div class="d-flex justify-content-center gap-3 fs-4 mb-4">
+        <a
+          class="text-body"
+          href="https://github.com/apeters4072"
+          aria-label="GitHub"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="bi bi-github"></i>
+        </a>
+        <a
+          class="text-body"
+          href="www.linkedin.com/in/apeters4072"
+          aria-label="LinkedIn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="bi bi-linkedin"></i>
+        </a>
+      </div>
+
+      <p class="text-secondary small mb-0">
+        © <span id="year"></span> Andrew Peters
+      </p>
+
+      <!-- Credits --
+      <p class="hero-credit text-center mb-0">
+        Photo courtesy of
+        <a
+          href="https://unsplash.com/@clevelandart"
+          target="_blank"
+          rel="noopener"
+        >
+          The Cleveland Museum of Art
+        </a>
+        on
+        <a
+          href="https://unsplash.com/photos/qQlTPeEygtY"
+          target="_blank"
+          rel="noopener"
+        >
+          Unsplash
+        </a>
+        for the original image from which my cover art is derived.
+      </p>
+      -->
+    </div>
+  </footer>
+
+  <!-- JS libs + site script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="main.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
