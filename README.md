@@ -1,7 +1,7 @@
 # Andrew Peters — Portfolio
 
 Welcome to my personal portfolio site, built with HTML, CSS, and JavaScript.  
-This site is hosted on **GitHub Pages** at 👉 [https://apeters4072.github.io/apeters.github.io/](https://apeters4072.github.io/apeters.github.io/)
+This site is hosted on **GitHub Pages** at 👉 [apeters.github.io/](https://apeters4072.github.io/apeters.github.io/)
 
 ## ✨ About
 I’m an upper-level GIS student at Delta State University, focused on:
@@ -22,4 +22,4 @@ This site is where I share my projects, experiments, and professional journey.
 
 ## 🚀 Live Site
 Check it out here:  
-👉 **[https://apeters4072.github.io/apeters.github.io/](https://apeters4072.github.io/apeters.github.io/)**  
+👉 **[apeters.github.io/](https://apeters4072.github.io/apeters.github.io/)**  
