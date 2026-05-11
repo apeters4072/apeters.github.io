@@ -136,6 +136,50 @@
     .badge-custom-blue {
       background-color: #0A4D91 !important;
       color: #ffffff !important;
+
+    /* Gallery grid */
+    .gallery-grid {
+      margin-top: 1.5rem;
+    }
+    
+    .gallery-card {
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,.06);
+      padding: 0.6rem 0.6rem 0;
+      transition: transform .18s ease, box-shadow .18s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 26px rgba(0,0,0,.10);
+    }
+    
+    .gallery-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;        /* show the whole map */
+      background-color: #f8f9fa;  /* light frame behind it */
+      border-radius: 10px;
+      cursor: zoom-in;            /* hint that it opens */
+    }
+    
+    .gallery-card figcaption {
+      padding: .75rem 1rem 1rem;
+      font-size: .9rem;
+      color: #6c757d;
+      flex-grow: 1;
+  }
+
+  /* Modal image */
+  .modal-dark-bg {
+      background-color: #000000;
+  }
     }
   </style>
 </head>
