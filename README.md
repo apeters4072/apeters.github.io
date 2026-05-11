@@ -1,7 +1,7 @@
 # Andrew Peters — Portfolio
 
 Welcome to my personal portfolio site, built with HTML, CSS, and JavaScript.  
-This site is hosted on **GitHub Pages** at 👉 [https://euzix.github.io](https://euzix.github.io)
+This site is hosted on **GitHub Pages** at 👉 [link](link)
 
 ## ✨ About
 I’m an upper-level GIS student at Delta State University, focused on:
@@ -19,8 +19,7 @@ This site is where I share my projects, experiments, and professional journey.
 - `/images` — Portfolio images & thumbnails  
 - `/projects` — Project pages  
 - `/docs` — Resume and supporting documents  
-- `/wildflower` — A hidden page for those curious enough to look
 
 ## 🚀 Live Site
 Check it out here:  
-👉 **[https://euzix.github.io](https://euzix.github.io)**  
+👉 **[link](link)**  
