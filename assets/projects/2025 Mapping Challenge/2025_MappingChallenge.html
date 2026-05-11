@@ -33,7 +33,7 @@
       overflow:hidden;
       box-shadow:0 4px 14px rgba(0,0,0,.08);
     }
-    .map-hero .ratio{--bs-aspect-ratio:100%;}
+    .map-hero .ratio{--bs-aspect-ratio:50%;}
     .map-hero arcgis-embedded-map,
     .map-hero img{
       display:block;
@@ -387,6 +387,22 @@
         </a>
       </nav>
     </div>
+
+  <!-- Gallery lightbox modal -->
+  <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content modal-dark-bg border-0">
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-0">
+          <img src="" alt="" class="img-fluid w-100 modal-img">
+          <p class="text-light small mt-2 mb-2 modal-caption"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+          
   </main>
 
   <footer class="border-top py-4 small">
@@ -446,5 +462,30 @@
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+  // --- Gallery lightbox (runs after Bootstrap + DOM are ready) ---
+  document.addEventListener('DOMContentLoaded', function () {
+    const modalElement = document.getElementById('galleryModal');
+    if (!modalElement) return;
+
+    const modalImg = modalElement.querySelector('.modal-img');
+    const modalCaption = modalElement.querySelector('.modal-caption');
+    const galleryModal = new bootstrap.Modal(modalElement);
+
+    document.querySelectorAll('.gallery-card img').forEach(img => {
+      img.addEventListener('click', () => {
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+
+        const captionEl = img.closest('figure').querySelector('figcaption');
+        modalCaption.textContent = captionEl ? captionEl.textContent : img.alt;
+
+        galleryModal.show();
+      });
+    });
+  });
+</script>
+          
 </body>
 </html>
