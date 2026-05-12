@@ -140,9 +140,9 @@
       </div>
 
       <!-- PROJECT GRID: every project card lives inside this row -->
-      <div class="row g-4">
+      <div id = "project-grid" class = "row g-4">
 
-        <!-- 2025 Mapping Challenge -->
+        <!-- 2025 Mapping Challenge
         <div class="col-md-6 col-lg-4 project-card" data-category="carto">
           <div class="card h-100 border-0 shadow-sm">
             <img
@@ -165,7 +165,7 @@
             </div>
           </div>
         </div>
-
+-->
         <!-- TEMPLATE for future projects
              To add a new one at the END, paste another block like this below.
              To add one at the BEGINNING, paste it ABOVE the desired card. -->
@@ -346,8 +346,9 @@
   </footer>
 
   <!-- JS libs + site script -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="main.js"></script>
+  <script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src = "projects.js".></script>
+  <script src = "main.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
