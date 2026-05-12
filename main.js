@@ -81,7 +81,7 @@ function renderProjects(projectArray) {
   projectGrid.innerHTML = "";
 
   projectArray.forEach(project => {
-    const techBadges = (project.technologies || [])
+    const techBadges = (project.tags || [])
       .map(
         tech => `<span class="badge bg-secondary me-1">${tech}</span>`
       )
