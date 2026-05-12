@@ -23,7 +23,8 @@ const projects = [
     // githubLink: "https://github.com/apeters4072/project",
     tags: [
       "ArcGIS Pro",
-      "Cartography"
+      "Cartography",
+      "School"
     ],
     featured: false,
     year: 2024
@@ -42,7 +43,8 @@ const projects = [
     tags: [
       "ArcGIS Pro",
       "Social Vulnerability",
-      "Georectification"
+      "Georectification",
+      "School"
     ],
     featured: false,
     year: 2025
