@@ -16,7 +16,9 @@ const projects = [
 
   {
     title: "The Himalayas",
-    category: ["carto"],
+    category: [
+      "carto",
+      "school"],
     description: "Depiciting the Highest Peaks in the World",
     image: "assets/projects/The Himalayas/The Himalayas.png",
     projectLink: "assets/projects/The Himalayas/The_Himalayas.html",
