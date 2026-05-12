@@ -13,13 +13,13 @@ I’m an upper-level GIS student at Delta State University, focused on:
 This site is where I share my projects, experiments, and professional journey.  
 
 ## 📂 Repo Structure
-- `index.html` — Homepage of the portfolio  
+- `assets`
+  | `documents` — Resume and other documents
+  | `images` — Site images and thumbnails
+  | `projects` — Projects and their pages
+- `templates` — Templates for easy expansion
+- `README.md` — You're reading this!
+- `index.html` — Homepage of the portfolio
+- `main.js` — JavaScript for interactivity
+- `project.js` — Project card information
 - `styles.css` — Main stylesheet  
-- `main.js` — JavaScript for interactivity  
-- `/images` — Portfolio images & thumbnails  
-- `/projects` — Project pages  
-- `/docs` — Resume and supporting documents  
-
-## 🚀 Live Site
-Check it out here:  
-👉 **[apeters.github.io/](https://apeters4072.github.io/apeters.github.io/)**  
