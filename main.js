@@ -1,37 +1,100 @@
 /******************************
  * Footer year (safe)
  ******************************/
-const yearEl = document.getElementById('year');
+const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+
 /******************************
- * Render Projects Dynamically
+ * HERO TYPED TEXT
+ ******************************/
+(function runTyped() {
+  const el = document.getElementById("typed");
+  if (!el) return;
+
+  const messages = [
+    "Geospatial data science student @ DSU",
+    "I build clean, readable maps",
+    "ArcGIS Pro • Remote Sensing • Python"
+  ];
+
+  let m = 0, i = 0, deleting = false;
+
+  function type() {
+    const text = messages[m];
+    el.textContent = text.slice(0, i);
+
+    if (!deleting && i < text.length) {
+      i++;
+      setTimeout(type, 50);
+      return;
+    }
+
+    if (!deleting && i === text.length) {
+      deleting = true;
+      setTimeout(type, 1200);
+      return;
+    }
+
+    if (deleting && i > 0) {
+      i--;
+      setTimeout(type, 28);
+      return;
+    }
+
+    if (deleting && i === 0) {
+      deleting = false;
+      m = (m + 1) % messages.length;
+      setTimeout(type, 140);
+      return;
+    }
+  }
+
+  type();
+})();
+
+
+/******************************
+ * PROJECT DATA HELPERS
  ******************************/
 const projectGrid = document.getElementById("project-grid");
 
-function renderProjects(projectArray) {
+function getSortedProjects(projectArray) {
+  return [...projectArray].sort((a, b) => {
+    // 1. Featured projects first
+    if (!!b.featured !== !!a.featured) {
+      return (b.featured === true) - (a.featured === true);
+    }
 
+    // 2. Then newest first (if year exists)
+    return (b.year || 0) - (a.year || 0);
+  });
+}
+
+
+/******************************
+ * RENDER PROJECTS
+ ******************************/
+function renderProjects(projectArray) {
   if (!projectGrid) return;
 
   projectGrid.innerHTML = "";
 
   projectArray.forEach(project => {
-
-    // Create technology badges
     const techBadges = (project.technologies || [])
-      .map(tech =>
-        `<span class="badge bg-secondary me-1">${tech}</span>`
+      .map(
+        tech => `<span class="badge bg-secondary me-1">${tech}</span>`
       )
       .join("");
 
-    // Convert category array into string
-    const categoryString = project.category.join(" ");
+    const categoryString = (project.category || []).join(" ");
 
-    // Create project card
     const card = `
       <div
         class="col-md-6 col-lg-4 project-card"
         data-category="${categoryString}"
+        data-featured="${project.featured ? "true" : "false"}"
+        data-year="${project.year || ""}"
       >
 
         <div class="card h-100 border-0 shadow-sm">
@@ -86,99 +149,57 @@ function renderProjects(projectArray) {
   });
 }
 
-renderProjects(projects);
 
 /******************************
- * Hero typed text (safe)
- * Requires: <span id="typed"></span>
+ * INITIAL PROJECT LOAD
  ******************************/
-(function runTyped() {
-  const el = document.getElementById('typed');
-  if (!el) return; // no hero typed element on this page
+// Requires projects.js loaded BEFORE main.js
+if (typeof projects !== "undefined") {
+  const sorted = getSortedProjects(projects);
+  renderProjects(sorted);
+}
 
-  const messages = [
-    "Geospatial data science student @ DSU",
-    "I build clean, readable maps",
-    "ArcGIS Pro • Remote Sensing • Python"
-  ];
-
-  let m = 0, i = 0, deleting = false;
-
-  function type() {
-    const text = messages[m];
-    el.textContent = text.slice(0, i);
-
-    if (!deleting && i < text.length) { i++; setTimeout(type, 50); return; }
-    if (!deleting && i === text.length) { deleting = true; setTimeout(type, 1200); return; }
-    if (deleting && i > 0) { i--; setTimeout(type, 28); return; }
-    if (deleting && i === 0) { deleting = false; m = (m + 1) % messages.length; setTimeout(type, 140); return; }
-  }
-  type();
-})();
 
 /******************************
- * Project filters (multi-tag)
- * Buttons: .btn-filter[data-filter="all|web|school|..."]
- * Cards:   .project-card[data-category="school web"] // space, comma, or pipe separated
+ * FILTER SYSTEM
  ******************************/
-
 (function setupFilters() {
-
-  const filterBtns = document.querySelectorAll('.btn-filter');
-
+  const filterBtns = document.querySelectorAll(".btn-filter");
   if (!filterBtns.length) return;
 
   function applyFilter(filter) {
-
-    const cards = document.querySelectorAll('.project-card');
+    const cards = document.querySelectorAll(".project-card");
 
     cards.forEach(card => {
-
-      const categories =
-        (card.dataset.category || "").split(" ");
-
-      const show =
-        filter === 'all' ||
-        categories.includes(filter);
-
-      card.style.display = show ? '' : 'none';
+      const categories = (card.dataset.category || "").split(" ");
+      const show = filter === "all" || categories.includes(filter);
+      card.style.display = show ? "" : "none";
     });
   }
 
   filterBtns.forEach(btn => {
-
-    btn.addEventListener('click', () => {
-
-      filterBtns.forEach(b =>
-        b.classList.remove('active')
-      );
-
-      btn.classList.add('active');
-
+    btn.addEventListener("click", () => {
+      filterBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
       applyFilter(btn.dataset.filter);
     });
   });
 
-  applyFilter('all');
-
+  applyFilter("all");
 })();
 
+
 /******************************
- * Make entire project card clickable
+ * CLICKABLE CARDS (delegated)
  ******************************/
-
 document.addEventListener("click", (e) => {
-
   const card = e.target.closest(".project-card");
-
   if (!card) return;
 
-  // Ignore button/link clicks
   if (e.target.closest("a, button")) return;
 
   const link = card.querySelector(".btn-primary");
-
-  if (link && link.href) {
+  if (link?.href) {
     window.location.href = link.href;
   }
 });
