@@ -129,14 +129,16 @@ function renderProjects(projectArray) {
                 View Project
               </a>
 
-              <a
-                class="btn btn-sm btn-outline-dark"
-                href="${project.githubLink}"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub
-              </a>
+              ${project.githubLink ? `
+                <a
+                  class = "btn btn-sm btn-outline-dark"
+                  href = ${project.githubLink}"
+                  target = "_blank"
+                  rel = "noopener noreferrer"
+                >
+                  GitHub
+                </a>
+              ` : ""}
 
             </div>
 
