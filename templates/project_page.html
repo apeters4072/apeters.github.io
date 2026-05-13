@@ -332,7 +332,7 @@
     document.getElementById('links-list').innerHTML = project.links.map(l => `<li><a href="${l.url}" target="_blank">${l.label}</a></li>`).join("");
   }
 
-  // Gallery Logic with Odd Image Handling
+// Gallery Logic with Odd Image Handling
   if (project.gallery?.length) {
     document.getElementById('gallery').style.display = 'block';
     const grid = document.getElementById('gallery-grid');
@@ -347,11 +347,11 @@
       if (item.type === "arcgis") {
         contentHtml = `
           <div class="ratio ratio-16x9">
-            <arcgis-embedded-map item-id="{item.itemId}" theme="light"></arcgis-embedded-map>
-          </div>;
-        } else {
-          contentHtml = `<img src="../${item.src}" alt="${item.caption || 'Gallery Image'}">`;
-        }
+            <arcgis-embedded-map item-id="${item.itemId}" theme="light"></arcgis-embedded-map>
+          </div>`;
+      } else {
+        contentHtml = `<img src="../${item.src}" alt="${item.caption || 'Gallery Image'}">`;
+      }
       
       return `
         <div class="${columnClass}">
