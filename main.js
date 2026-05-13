@@ -1,13 +1,15 @@
 /******************************
- * Footer year (safe)
+ * FOOTER DYNAMIC YEAR
  ******************************/
+
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 
 /******************************
- * HERO TYPED TEXT
+ * HERO ANIMATED TEXT
  ******************************/
+
 (function runTyped() {
   const el = document.getElementById("typed");
   if (!el) return;
@@ -24,24 +26,28 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
     const text = messages[m];
     el.textContent = text.slice(0, i);
 
+    // Typing Forward
     if (!deleting && i < text.length) {
       i++;
       setTimeout(type, 50);
       return;
     }
 
+    // Pause at the end of a full string
     if (!deleting && i === text.length) {
       deleting = true;
       setTimeout(type, 1200);
       return;
     }
 
+    // Backspacing
     if (deleting && i > 0) {
       i--;
       setTimeout(type, 28);
       return;
     }
 
+    // Begin typing next string
     if (deleting && i === 0) {
       deleting = false;
       m = (m + 1) % messages.length;
@@ -55,18 +61,20 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 
 /******************************
- * PROJECT DATA HELPERS
+ * PPROJECT CARD SORTING
  ******************************/
+
 const projectGrid = document.getElementById("project-grid");
 
 function getSortedProjects(projectArray) {
   return [...projectArray].sort((a, b) => {
-    // 1. Featured projects first
+    
+    // Featured project first in project card grid
     if (!!b.featured !== !!a.featured) {
       return (b.featured === true) - (a.featured === true);
     }
 
-    // 2. Then newest first (if year exists)
+    // Sort via chronological order
     return (b.year || 0) - (a.year || 0);
   });
 }
@@ -75,20 +83,25 @@ function getSortedProjects(projectArray) {
 /******************************
  * RENDER PROJECTS
  ******************************/
+
 function renderProjects(projectArray) {
   if (!projectGrid) return;
 
+  // Clear existing content before rendering
   projectGrid.innerHTML = "";
 
+  // Create tag badges
   projectArray.forEach(project => {
-    const techBadges = (project.tags || [])
+    const tagBadges = (project.tags || [])
       .map(
-        tech => `<span class="badge bg-secondary me-1">${tech}</span>`
+        tag => `<span class="badge bg-secondary me-1">${tag}</span>`
       )
       .join("");
 
+    // Prepare category string for the data-category filter attribute
     const categoryString = (project.category || []).join(" ");
 
+    // HTML for Project Card
     const card = `
       <div
         class="col-md-6 col-lg-4 project-card"
@@ -117,7 +130,7 @@ function renderProjects(projectArray) {
             </p>
 
             <div class="mb-3">
-              ${techBadges}
+              ${tagBadges}
             </div>
 
             <div class="d-flex gap-2 justify-content-center mt-auto">
@@ -155,6 +168,7 @@ function renderProjects(projectArray) {
 /******************************
  * INITIAL PROJECT LOAD
  ******************************/
+
 // Requires projects.js loaded BEFORE main.js
 if (typeof projects !== "undefined") {
   const sorted = getSortedProjects(projects);
@@ -165,6 +179,7 @@ if (typeof projects !== "undefined") {
 /******************************
  * FILTER SYSTEM
  ******************************/
+
 (function setupFilters() {
   const filterBtns = document.querySelectorAll(".btn-filter");
   if (!filterBtns.length) return;
@@ -179,6 +194,7 @@ if (typeof projects !== "undefined") {
     });
   }
 
+  // Toggles the active class and filters grid
   filterBtns.forEach(btn => {
     btn.addEventListener("click", () => {
       filterBtns.forEach(b => b.classList.remove("active"));
@@ -194,12 +210,14 @@ if (typeof projects !== "undefined") {
 /******************************
  * CLICKABLE CARDS (delegated)
  ******************************/
+
 document.addEventListener("click", (e) => {
   const card = e.target.closest(".project-card");
   if (!card) return;
 
   if (e.target.closest("a, button")) return;
 
+  // Redirect to primary link in card
   const link = card.querySelector("a[href]");
   if (link?.href) {
     window.location.href = link.getAttribute("href");
