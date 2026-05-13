@@ -1,7 +1,7 @@
 // To change from a static image to an AGOL webmap, change 'type: "image"' to 'type: "agol"'
 // Additionally, change 'src:' to 'itemId:' and input web map itemID
 
-const projects = [
+const project = [
   {
     // Project Information
     id: "mapping-challenge-2025",
