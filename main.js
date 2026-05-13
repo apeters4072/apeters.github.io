@@ -124,7 +124,7 @@ function renderProjects(projectArray) {
 
               <a
                 class="btn btn-sm btn-primary"
-                href="projects.html?id=${project.id}"
+                href="project_page.html?id=${project.id}"
               >
                 View Project
               </a>
