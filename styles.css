@@ -94,19 +94,23 @@ body{
 /* ==============================
    Sections
    ============================== */
-.section{ padding: 72px 0; }
-.section-alt{ background: var(--brand-soft); }
-.section-header{ text-align:center; margin-bottom: 28px; }
+.section { padding: 72px 0; }
+.section-alt { background: var(--brand-soft); }
+.section-header { text-align: center; margin-bottom: 28px; }
 
-.section-title{
-  display:inline-block;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: #fff;
-  border:1px solid #e7eef9;
-  box-shadow: 0 1px 0 #f2f6fd;
+.section-title {
+  display: block;      /* Changed from inline-block to block */
+  font-weight: 700;
+  font-size: 2rem;     /* Adjust size to your preference */
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+  /* Removed padding, background, border, and box-shadow */
 }
-.section-subtitle{ color: var(--muted); }
+
+.section-subtitle { 
+  color: var(--muted); 
+  font-size: 1.1rem;
+}
 
 /* ==============================
    Project Filters
