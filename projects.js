@@ -390,7 +390,7 @@ const projects = [
     gallery: [
       {
         type: "image",
-        itemId: "assets/projects/Metro Phoenix Temperature Study/AZ_Desert.jpg",
+        src: "assets/projects/Metro Phoenix Temperature Study/AZ_Desert.jpg",
         caption: "Metro Phoenix Temperature Study StoryMap"
       },    
     ],
