@@ -303,7 +303,7 @@ const projects = [
     year: 2025,
 
     // Project Page elements
-    summary: "This project compares the level of accuracy between different interpolation techniques. Three methods were used in this project; simple kriging, empirical baysian kriging (EBK), and EBK Regression Prediction.",
+    summary: "This project compares the level of accuracy between different interpolation techniques. Three methods were used in this project; simple kriging, empirical bayesian kriging (EBK), and EBK Regression Prediction.",
     time: "One week",
     role: "Individual",
     deliverable: "Softcopy static map",
