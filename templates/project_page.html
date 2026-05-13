@@ -332,35 +332,59 @@
     document.getElementById('links-list').innerHTML = project.links.map(l => `<li><a href="${l.url}" target="_blank">${l.label}</a></li>`).join("");
   }
 
-// Gallery Logic with Odd Image Handling
-  if (project.gallery?.length) {
-    document.getElementById('gallery').style.display = 'block';
-    const grid = document.getElementById('gallery-grid');
-    const isOdd = project.gallery.length % 2 !== 0;
+// Gallery Logic with Universal ArcGIS Support
+if (project.gallery?.length) {
+  document.getElementById('gallery').style.display = 'block';
+  const grid = document.getElementById('gallery-grid');
+  const isOdd = project.gallery.length % 2 !== 0;
 
-    grid.innerHTML = project.gallery.map((item, index) => {
-      const isFeatured = isOdd && index === 0;
-      const columnClass = isFeatured ? 'col-12' : 'col-12 col-md-6';
+  grid.innerHTML = project.gallery.map((item, index) => {
+    const isFeatured = isOdd && index === 0;
+    const columnClass = isFeatured ? 'col-12' : 'col-12 col-md-6';
 
-      let contentHtml = "";
+    let contentHtml = "";
 
-      // Check if the item is an ArcGIS map or a standard image
-      if (item.type === "arcgis") {
-        contentHtml = `
-          <div class="ratio ratio-16x9">
-            <arcgis-embedded-map item-id="${item.itemId}" theme="light"></arcgis-embedded-map>
-          </div>`;
-      } else {
-        contentHtml = `<img src="../${item.src}" alt="${item.caption || 'Gallery Image'}">`;
-      }
-      
-      return `
-        <div class="${columnClass}">
-          <figure class="gallery-card">
-            ${contentHtml}
-            <figcaption>${item.caption || ""}</figcaption>
-          </figure>
+    // ArcGIS Web Maps / Web Scenes
+    if (item.type === "arcgis-map") {
+      contentHtml = `
+        <div class="ratio ratio-16x9">
+          <arcgis-embedded-map
+            item-id="${item.itemId}"
+            theme="light">
+          </arcgis-embedded-map>
         </div>`;
+    }
+
+    // StoryMaps / Dashboards / Experience Builder / Apps
+    else if (item.type === "arcgis-app") {
+      contentHtml = `
+        <div class="ratio ratio-16x9">
+          <iframe
+            src="${item.url}"
+            width="100%"
+            height="100%"
+            frameborder="0"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>`;
+    }
+
+    // Regular Images
+    else {
+      contentHtml = `
+        <img
+          src="../${item.src}"
+          alt="${item.caption || 'Gallery Image'}">`;
+    }
+
+    return `
+      <div class="${columnClass}">
+        <figure class="gallery-card">
+          ${contentHtml}
+          <figcaption>${item.caption || ""}</figcaption>
+        </figure>
+      </div>`;
     }).join("");
   }
 
