@@ -330,23 +330,45 @@
     });
   });
 
+const observerOptions = {
+  root: null,
+  // This creates a narrow "detection strip" near the top of the screen (15% from top)
+  rootMargin: '-15% 0px -80% 0px', 
+  threshold: 0
+};
+
 const observer = new IntersectionObserver(entries => {
-  // We only care about sections currently on screen
-  const visible = entries.filter(e => e.isIntersecting);
-  if (!visible.length) return;
-
-  // Find the section whose top is closest to the top of the viewport
-  const mostVisible = visible.reduce((prev, curr) => {
-    return (Math.abs(curr.boundingClientRect.top) < Math.abs(prev.boundingClientRect.top)) ? curr : prev;
+  entries.forEach(entry => {
+    // When a section enters that 15% top margin area
+    if (entry.isIntersecting) {
+      const id = `#${entry.target.id}`;
+      
+      // We use 'allDots' which you already defined above
+      allDots.forEach(dot => {
+        dot.classList.toggle('is-active', dot.dataset.target === id);
+      });
+    }
   });
+}, observerOptions);
 
-  const id = `#${mostVisible.target.id}`;
-  allDots.forEach(dot => {
-    dot.classList.toggle('is-active', dot.dataset.target === id);
-  });
-}, { 
-  threshold: [0, 0.1, 0.2, 0.3], // Detect even a small sliver of the section
-  rootMargin: '-10% 0px -70% 0px' // Focus the "active zone" on the top 30% of the screen
+// Tell the observer which sections to track
+const topSection = document.getElementById('top');
+if (topSection) observer.observe(topSection);
+
+// Track all content sections that are actually visible
+document.querySelectorAll('.section-block').forEach(s => {
+  if (s.style.display !== 'none') {
+    observer.observe(s);
+  }
+});
+
+// Manual override for the very top of the page (The Heart Dot)
+window.addEventListener('scroll', () => {
+  if (window.scrollY < 100) {
+    allDots.forEach(dot => {
+      dot.classList.toggle('is-active', dot.dataset.target === '#top');
+    });
+  }
 });
 
   // Lightbox
