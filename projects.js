@@ -278,7 +278,71 @@ const projects = [
   },
 
   //*******************************************************************************
-  
+
+  {
+    // Project Information
+    id: "comparing-interpolation-techniques",
+    title: "Comparing Interpolation Tecnhiques",
+    description: "Comparing the difference between kriging techniques",
+    hero: {
+      type: "image",
+      src: "assets/projects/Comparing Interpolation Techniques/Peters_M12_Lab_Comparing-Interpolation-Techniques.png",
+      caption: "Comparing Interpolation Techniques"
+    },
+    category: [
+      "data-science",
+      "geo-analysis",
+      "school"
+    ],
+    tags: [
+      "ArcGIS Pro",
+      "Geostatistical Analysis",
+    ],
+    githubLink: null,
+    featured: false,
+    year: 2025,
+
+    // Project Page elements
+    summary: "This project compares the level of accuracy between different interpolation techniques. Three methods were used in this project; simple kriging, empirical baysian kriging (EBK), and EBK Regression Prediction.",
+    time: "One week",
+    role: "Individual",
+    deliverable: "Softcopy static map",
+
+    objective: "This map was created for a weekly assignment in GIS-461: Geo Math, Algorithms, and Statistics. The objective of the lab was to create a continuous temperature surface using different interpolation techniques and compare the differences. Each temperature surface used the same data source and use the same study area.",
+ 
+    links: [
+      {
+        label: "How Kriging Works (ESRI)",
+        url: "https://pro.arcgis.com/en/pro-app/3.4/tool-reference/spatial-analyst/how-kriging-works.htm"
+      },
+
+    ],
+
+    gallery: [
+      {
+        type: "image",
+        src: "assets/projects/Comparing Interpolation Techniques/Peters_M12_Lab_Comparing-Interpolation-Techniques.png",
+        caption: "Comparing Interpolation Techniques"
+      },    
+    ],
+
+    method: [
+      "Ingested point feature class that contained temperature data",
+      "Interpolated a temperature surface suing simple kriging through the Geostatistical Wizard",
+      "Interpolated a temperature surface using empirical bayesian kriging (EBK) through the Geostatistical Wizard",
+      "Incoroporated explanatory variables, such as impervious surfaces, with EBK Regression Prediction",
+    ],
+    
+    sources: [
+      "Analyze Urban Heat using Kriging | ESRI",
+      "NLCD - Impervious Surfaces | USGS",
+      "Temperature data | Environmental Data Initiative",
+      "Basemap | ESRI",
+    ],
+      
+  },
+
+  //*******************************************************************************
 /*
 
   {
