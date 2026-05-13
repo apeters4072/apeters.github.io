@@ -113,7 +113,7 @@ const projects = [
     role: "Individual",
     deliverable: "Softcopy static map",
 
-    objective: "This map was created for a weekly assignment in GIS-302: Cartography. The objective of the lab was to create a 'Cool Map' using an ArcGIS style from the ArcGIS Pro Styles 'Creative Styles' selection. The content of the map was open-ended, and left to the map-maker to decide.",
+    objective: "This map was created for a weekly assignment in GIS-302: Cartography. The objective of the lab was to create a 'Cool Map' using an ArcGIS style from the ArcGIS Pro Styles 'Creative Styles' selection. The content of the map was open-ended and left to the map-maker to decide.",
  
     links: [
       {
@@ -204,7 +204,7 @@ const projects = [
       "Social Vulnerability index | Centers for Disease Control and Prevention/ Agency for Toxic Substances and Disease Registry/ Geospatial Research, Analysis, and Services Program- 2022 Social Vulnerability Index",
       "1860 Slave Populations | Library of Congress",
       "Boundaries | NaturalEarth",
-      "Textual information refined with ChatGPT
+      "Textual information refined with ChatGPT"
     ],
       
   },
