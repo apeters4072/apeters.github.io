@@ -283,7 +283,7 @@ const projects = [
     // Project Information
     id: "comparing-interpolation-techniques",
     title: "Comparing Interpolation Tecnhiques",
-    description: "Comparing the difference between kriging techniques",
+    description: "Comparing the differences between kriging techniques",
     hero: {
       type: "image",
       src: "assets/projects/Comparing Interpolation Techniques/Peters_M12_Lab_Comparing-Interpolation-Techniques.png",
