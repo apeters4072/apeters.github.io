@@ -124,7 +124,7 @@ function renderProjects(projectArray) {
 
               <a
                 class="btn btn-sm btn-primary"
-                href="../templates/project_page.html?id=${project.id}"
+                href="templates/project_page.html?id=${project.id}"
               >
                 View Project
               </a>
@@ -200,8 +200,8 @@ document.addEventListener("click", (e) => {
 
   if (e.target.closest("a, button")) return;
 
-  const link = card.querySelector(".btn-primary");
+  const link = card.querySelector("a[href]");
   if (link?.href) {
-    window.location.href = link.href;
+    window.location.href = link.getAttribute("href");
   }
 });
