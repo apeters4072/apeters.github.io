@@ -1,6 +1,3 @@
-// To change from a static image to an AGOL webmap, change 'type: "image"' to 'type: "arcgis"'
-// Additionally, change 'src:' to 'itemId:' and input web map itemID
-
 const projects = [
   {
     // Project Information
@@ -389,7 +386,7 @@ const projects = [
 
     gallery: [
       {
-        type: "arcgis",
+        type: "arcgis-app",
         itemId: "7fa0d0d8788245f6a91f36ea45620878",
         caption: "Metro Phoenix Temperature Study StoryMap"
       },    
@@ -472,6 +469,12 @@ const projects = [
         src: "assets/projects/project_folder/project_image.png",
         caption: "project_image caption"
       },    
+      <!-- OR -->
+      {
+        type: "arcgis-map" / "arcgis-app",
+        itemId: "item id",
+        caption: "item caption"
+      }
     ],
 
     method: [
