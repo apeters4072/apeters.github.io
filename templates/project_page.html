@@ -6,16 +6,10 @@
 
   <title id="page-title">Project</title>
 
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- ArcGIS (keeps web map support) -->
+  <!-- ArcGIS Online embed support -->
   <script type="module"
     src="https://js.arcgis.com/embeddable-components/4.33/arcgis-embeddable-components.esm.js">
   </script>
@@ -23,11 +17,31 @@
   <link rel="stylesheet" href="../styles.css" />
 
   <style>
+    /* =========================
+       PAGE BACKGROUND
+    ========================== */
+    body {
+      background: #f6f8fc;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
     .project-hero {
-      background: linear-gradient(180deg, rgba(0,0,0,.02), transparent);
+      background:
+        radial-gradient(80% 60% at 50% 0%, rgba(13,110,253,.10), transparent),
+        linear-gradient(180deg, rgba(13,110,253,.05), transparent);
       border-radius: 1.25rem;
     }
 
+    .img-caption {
+      font-size: .9rem;
+      color: #6c757d;
+    }
+
+    /* =========================
+       LAYOUT
+    ========================== */
     .project-body {
       max-width: 900px;
       margin: 0 auto;
@@ -47,6 +61,9 @@
       margin-bottom: 1rem;
     }
 
+    /* =========================
+       META CARDS
+    ========================== */
     .meta-card {
       padding: 1rem 1.25rem;
       border-radius: .75rem;
@@ -54,34 +71,44 @@
       border: 1px solid #e3eaf4;
     }
 
-    .map-hero {
-      border-radius: 12px;
-      overflow: hidden;
+    /* =========================
+       GALLERY STYLING
+    ========================== */
+    .gallery-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 0.6rem;
+      border: 1px solid #e3eaf4;
+      box-shadow: 0 6px 18px rgba(0,0,0,.06);
+      transition: transform .2s ease, box-shadow .2s ease;
     }
 
-    .map-hero img,
-    .map-hero arcgis-embedded-map {
-      width: 100%;
-      height: 100%;
-      display: block;
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 26px rgba(0,0,0,.12);
     }
 
     .gallery-card img {
       width: 100%;
       border-radius: 10px;
+      display: block;
+      background: #f8f9fa;
       cursor: zoom-in;
     }
 
-    .img-caption {
-      font-size: .9rem;
-      color: #6c757d;
+    /* =========================
+       LIGHTBOX MODAL
+    ========================== */
+    .modal-dark {
+      background: rgba(0,0,0,.9);
     }
+
   </style>
 </head>
 
 <body>
 
-<!-- NAV -->
+<!-- ================= NAVBAR ================= -->
 <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
   <div class="container">
     <a class="navbar-brand" href="../index.html">Andrew Peters</a>
@@ -96,23 +123,19 @@
 
 <main class="container my-5">
 
-  <!-- HERO -->
+  <!-- ================= HERO ================= -->
   <header class="project-hero p-4 p-md-5 shadow-sm mb-5">
 
     <div class="row g-4 align-items-center">
 
-      <!-- TEXT -->
       <div class="col-lg-7">
         <h1 id="project-title" class="display-5 fw-semibold mb-3"></h1>
-
         <p id="project-description" class="lead mb-3"></p>
-
         <div id="project-tags" class="d-flex flex-wrap gap-2"></div>
       </div>
 
-      <!-- HERO MEDIA (ArcGIS supported) -->
       <div class="col-lg-5">
-        <figure class="map-hero mb-0">
+        <figure class="mb-0">
 
           <div id="hero-container"></div>
 
@@ -124,10 +147,10 @@
     </div>
   </header>
 
-  <!-- BODY -->
+  <!-- ================= BODY ================= -->
   <div class="project-body">
 
-    <!-- 1. SUMMARY -->
+    <!-- SUMMARY -->
     <section id="summary-section" class="section-block">
       <h2 class="section-title">Summary</h2>
 
@@ -157,31 +180,31 @@
       </div>
     </section>
 
-    <!-- 2. OBJECTIVE -->
+    <!-- OBJECTIVE -->
     <section id="objective-section" class="section-block">
       <h2 class="section-title">Objective</h2>
       <p id="objective-text"></p>
     </section>
 
-    <!-- 3. LINKS -->
+    <!-- LINKS -->
     <section id="links-section" class="section-block">
       <h2 class="section-title">Links</h2>
       <ul id="links-list"></ul>
     </section>
 
-    <!-- 4. GALLERY -->
+    <!-- GALLERY -->
     <section id="gallery-section" class="section-block">
       <h2 class="section-title">Gallery</h2>
       <div id="gallery-grid" class="row g-3"></div>
     </section>
 
-    <!-- 5. METHODS -->
+    <!-- METHODS -->
     <section id="method-section" class="section-block">
       <h2 class="section-title">Methods</h2>
       <ol id="method-list"></ol>
     </section>
 
-    <!-- 6. SOURCES -->
+    <!-- SOURCES -->
     <section id="sources-section" class="section-block pb-0">
       <h2 class="section-title">Sources</h2>
       <ul id="sources-list"></ul>
@@ -190,18 +213,32 @@
   </div>
 </main>
 
-<footer class="border-top py-4 small text-center">
-  © <span id="year"></span> Andrew Peters
-</footer>
+<!-- ================= LIGHTBOX MODAL ================= -->
+<div class="modal fade" id="galleryModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content modal-dark border-0">
 
-<!-- DATA -->
+      <div class="modal-header border-0">
+        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body text-center">
+        <img src="" class="img-fluid modal-img mb-2" alt="">
+        <div class="text-white small modal-caption"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ================= DATA ================= -->
 <script src="../projects.js"></script>
 
-<!-- PAGE RENDER SCRIPT (unchanged logic, ArcGIS preserved) -->
+<!-- ================= RENDER ENGINE ================= -->
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year")?.remove();
 
-/* GET PROJECT */
+/* LOAD PROJECT */
 const params = new URLSearchParams(window.location.search);
 const projectId = params.get("id");
 const project = projects.find(p => p.id === projectId);
@@ -219,19 +256,14 @@ document.getElementById("project-description").textContent = project.description
 
 /* TAGS */
 document.getElementById("project-tags").innerHTML =
-  (project.tags || [])
-    .map(t => `<span class="badge text-bg-light border">${t}</span>`)
-    .join("");
+  (project.tags || []).map(t => `<span class="badge text-bg-light border">${t}</span>`).join("");
 
 /* HERO (ArcGIS supported) */
 const heroContainer = document.getElementById("hero-container");
 
 if (project.hero?.type === "arcgis") {
   heroContainer.innerHTML = `
-    <arcgis-embedded-map
-      item-id="${project.hero.itemId}"
-      theme="light">
-    </arcgis-embedded-map>
+    <arcgis-embedded-map item-id="${project.hero.itemId}" theme="light"></arcgis-embedded-map>
   `;
 } else {
   heroContainer.innerHTML = `
@@ -260,21 +292,13 @@ if (project.objective) {
 }
 
 /* LINKS */
-let linksHTML = "";
-
-if (project.links?.length) {
-  linksHTML += project.links.map(l =>
+document.getElementById("links-list").innerHTML =
+  (project.links || []).map(l =>
     `<li><a href="${l.url}" target="_blank">${l.label}</a></li>`
-  ).join("");
-}
-
-if (project.githubLink) {
-  linksHTML += `
-    <li><a href="${project.githubLink}" target="_blank">GitHub Repository</a></li>
-  `;
-}
-
-document.getElementById("links-list").innerHTML = linksHTML;
+  ).join("") +
+  (project.githubLink
+    ? `<li><a href="${project.githubLink}" target="_blank">GitHub</a></li>`
+    : "");
 
 /* METHODS */
 if (project.method?.length) {
@@ -292,22 +316,48 @@ if (project.sources?.length) {
   document.getElementById("sources-section").style.display = "none";
 }
 
-/* GALLERY */
+/* GALLERY (odd-first full width + framing + lightbox support) */
 if (project.gallery?.length) {
-  document.getElementById("gallery-grid").innerHTML =
-    project.gallery.map(img => `
-      <div class="col-12 col-md-6">
-        <figure>
-          <img src="../${img.src}" alt="${img.caption}" class="img-fluid rounded">
+
+  const items = project.gallery;
+  let html = "";
+
+  items.forEach((img, i) => {
+    const full = (items.length % 2 === 1 && i === 0);
+
+    html += `
+      <div class="${full ? "col-12" : "col-12 col-md-6"}">
+        <figure class="gallery-card">
+          <img src="../${img.src}" alt="${img.caption}">
           <figcaption class="img-caption mt-2">${img.caption}</figcaption>
         </figure>
       </div>
-    `).join("");
+    `;
+  });
+
+  document.getElementById("gallery-grid").innerHTML = html;
+
+  /* LIGHTBOX */
+  const modalEl = document.getElementById("galleryModal");
+  const modalImg = modalEl.querySelector(".modal-img");
+  const modalCaption = modalEl.querySelector(".modal-caption");
+  const modal = new bootstrap.Modal(modalEl);
+
+  document.querySelectorAll("#gallery-grid img").forEach(img => {
+    img.addEventListener("click", () => {
+      modalImg.src = img.src;
+      modalCaption.textContent =
+        img.closest("figure")?.querySelector("figcaption")?.textContent || "";
+      modal.show();
+    });
+  });
+
 } else {
   document.getElementById("gallery-section").style.display = "none";
 }
-
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
