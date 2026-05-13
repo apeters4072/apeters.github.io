@@ -124,7 +124,7 @@ function renderProjects(projectArray) {
 
               <a
                 class="btn btn-sm btn-primary"
-                href="${project.projectLink}"
+                href="projects.html?id=${project.id}"
               >
                 View Project
               </a>
@@ -132,7 +132,7 @@ function renderProjects(projectArray) {
               ${project.githubLink ? `
                 <a
                   class = "btn btn-sm btn-outline-dark"
-                  href = ${project.githubLink}"
+                  href = "${project.githubLink}"
                   target = "_blank"
                   rel = "noopener noreferrer"
                 >
