@@ -370,7 +370,7 @@ const projects = [
     ],
     githubLink: null,
     featured: false,
-    year: 2026,
+    year: 2025,
 
     // Project Page elements
     summary: "This project examines historical temperature trends aorund metro Phoenix and identifies a general temperature increases for the past 20 years. Furthermore, this project explores water infrastructure in the region to gain a better understanding of the challenges the desert faces.",
