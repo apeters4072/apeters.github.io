@@ -343,6 +343,73 @@ const projects = [
   },
 
   //*******************************************************************************
+
+  {
+    // Project Information
+    id: "metro-phx-temperature-study",
+    title: "Metro Phoenix Temperature Study",
+    description: "Rising temperatures in the Southeast, compounded by sprawling urban growth",
+    hero: {
+      type: "image",
+      src: "assets/projects/Metro Phoenix Temperature Study/AZ_Desert.jpg",
+      caption: "Sonoran Desert, Arizona"
+    },
+    category: [
+      "data-science",
+      "geo-analysis",
+      "programming",
+      "web",
+      "school"
+    ],
+    tags: [
+      "ArcGIS Pro",
+      "ArcGIS Online",
+      "RStudio",
+      "Python",
+      "Geostatistical Analysis",
+    ],
+    githubLink: null,
+    featured: false,
+    year: 2026,
+
+    // Project Page elements
+    summary: "This project examines historical temperature trends aorund metro Phoenix and identifies a general temperature increases for the past 20 years. Furthermore, this project explores water infrastructure in the region to gain a better understanding of the challenges the desert faces.",
+    time: "One month",
+    role: "Lead geospatial analyst and cartographer of a group of 4",
+    deliverable: "StoryMap, web maps, charts, graphs, and code scripts",
+
+    objective: "This StoryMap was created for the final examination in GIS-461: Geo Math, Algorithms, and Statistics. The objective of the final was to employ the statical and geostatistical techniques that we learned throughout the semester, and deliver a cohesive view of temperature trends in the region around metro Phoenix.",
+ 
+    links: [
+      {
+        label: "How Kriging Works (ESRI)",
+        url: "https://pro.arcgis.com/en/pro-app/3.4/tool-reference/spatial-analyst/how-kriging-works.htm"
+      },
+    ],
+
+    gallery: [
+      {
+        type: "agol",
+        itemId: "7fa0d0d8788245f6a91f36ea45620878",
+        caption: "Metro Phoenix Temperature Study StoryMap"
+      },    
+    ],
+
+    method: [
+      "Created a Python script to identify the hottest day recorded amongst any station over a 20-year period. Then, add each station's temperature on that same day to an array.",
+      "Using the information identified in Step 1, use those values to inform an interpolation model. Different interpolation techniques were explored using ArcGIS Pro's Geostatistical Wizard and ranked by a custom weighted calculator.",
+      "Created a Python script to determine each stations rate of change per station through linear regression, and added those values to a three-dimensional array.",
+      "Using the information identified in Step 3, the values inside the three-dimensional array were used to inform an average rate of change surface. Different interpolation techniques were explored using ArcGIS Pro's Geostatistical Wizard and ranked by a custom weighted calculator.",
+    ],
+    
+    sources: [
+      "Temperature data | AZMET, University of Arizona Cooperative Extension",
+      "Land Use/Land Cover (LULC) | ESRI Living Atlas of the World",
+    ],
+      
+  },
+
+  //*******************************************************************************
 /*
 
   {
