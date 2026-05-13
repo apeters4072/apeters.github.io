@@ -387,7 +387,7 @@ const projects = [
     gallery: [
       {
         type: "arcgis-app",
-        itemId: "7fa0d0d8788245f6a91f36ea45620878",
+        url: "https://storymaps.arcgis.com/stories/7fa0d0d8788245f6a91f36ea45620878",
         caption: "Metro Phoenix Temperature Study StoryMap"
       },    
     ],
@@ -471,10 +471,16 @@ const projects = [
       },    
       <!-- OR -->
       {
-        type: "arcgis-map" / "arcgis-app",
+        type: "arcgis-map",
         itemId: "item id",
         caption: "item caption"
-      }
+      },
+      <!-- OR -->
+      {
+        type: "arcgis-app",
+        url: "https://www.arcgis.com/index.html",
+        caption: "item caption"
+      },
     ],
 
     method: [
