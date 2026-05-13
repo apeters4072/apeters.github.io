@@ -73,15 +73,15 @@ const projects = [
     method: null,
     
     sources: [
-      "- OpenStreetMap vector data",
-      "- NaturalEarth vector and raster data",
-      "- wafflehouse.com for store locations",
-      "- USGS Elevation data",
-      "- USGS Hydrography data",
-      "- Wikipedia text information",
+      "- Roads, Boundaries | OpenStreetMap",
+      "- Boudaries, Hypso Tint | NaturalEarth",
+      "- Elevation data | USGS",
+      "- Hydrography data | USGS",
+      "- Text Information | Wikipedia",
+      "- Waffle House locations | wafflehouse.com",
     ],
       
-  }
+  },
 
   //*******************************************************************************
   
@@ -144,5 +144,89 @@ const projects = [
       "- Terrain Data | Earthstar Geographics, ESRI",
     ],
       
-  }
+  },
+
+  //*******************************************************************************
+  
+/*
+  {
+    // Project Information
+    id: "project-id",
+    title: "project-title",
+    description: "description; shows on project card and project hero",
+    hero: {
+      type: "image",
+      src: "assets/projects/project_folder/project_image.png",
+      caption: "project_image caption"
+    },
+    category: [
+      "carto",
+      "data-science",
+      "geo-analysis",
+      "programming",
+      "remote",
+      "web",
+      "school"
+    ],
+    tags: [
+      "technology",
+      "tag 1",
+      "tag 2",
+      "tag 3",
+    ],
+    githubLink: "https://github.com/apeters4072/",
+    featured: false,
+    year: 2026,
+
+    // Project Page elements
+    summary: "Summary of project",
+    time: "Time working on project",
+    role: "Role in project",
+    deliverable: "Products created",
+
+    objective: "Objective of project",
+ 
+    links: [
+      {
+        label: "Link 1 Label",
+        url: "https://www.arcgis.com/index.html"
+      },
+
+      {
+        label: "Link 2 Label",
+        url: "https://www.arcgis.com/index.html"
+      },
+
+      {
+        label: "Link 3 Label",
+        url: "https://www.arcgis.com/index.html"
+      },
+    ],
+
+    gallery: [
+      {
+        type: "image",
+        src: "assets/projects/project_folder/project_image.png",
+        caption: "project_image caption"
+      },    
+    ],
+
+    method: [
+      "1. Step 1",
+      "2. Step 2",
+      "3. Step 3",
+      "4. Step 4",
+      "5. Step 5",
+    ],
+    
+    sources: [
+      "- Data 1 | Source",
+      "- Data 2 | Source",
+      "- Data 3 | Source",
+      "- Data 4 | Source",
+      "- Data 5 | Source",
+    ],
+      
+  },
+*/
 ];
