@@ -338,15 +338,26 @@
     const grid = document.getElementById('gallery-grid');
     const isOdd = project.gallery.length % 2 !== 0;
 
-    grid.innerHTML = project.gallery.map((img, index) => {
+    grid.innerHTML = project.gallery.map((item, index) => {
       const isFeatured = isOdd && index === 0;
       const columnClass = isFeatured ? 'col-12' : 'col-12 col-md-6';
+
+      let contentHtml = "";
+
+      if (item.type === "arcgis") {
+        contentHtml = `
+          <div class="ratio ratio-16x9">
+            <arcgis-embedded-map item-id="{item.itemId}" theme="light"></arcgis-embedded-map>
+          </div>;
+        } else {
+          contentHtml = `<img src="../${item.src}" alt="${item.caption || 'Gallery Image'}">`;
+        }
       
       return `
         <div class="${columnClass}">
           <figure class="gallery-card">
-            <img src="../${img.src}" alt="${img.caption}">
-            <figcaption>${img.caption}</figcaption>
+            ${contentHtml}
+            <figcaption>${item.caption || ""}</figcaption>
           </figure>
         </div>`;
     }).join("");
