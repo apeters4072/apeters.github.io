@@ -3,422 +3,87 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PROJECT TITLE | Andrew Peters • Portfolio</title>
+  <title>Project | Andrew Peters • Portfolio</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- Only needed if you embed ArcGIS maps -->
-  <script type="module" src="https://js.arcgis.com/embeddable-components/4.33/arcgis-embeddable-components.esm.js"></script>
-
   <link rel="stylesheet" href="../styles.css" />
 
-  <style>
-    /* Hero + map styles */
-    .project-hero{
-      background:
-        radial-gradient(80% 60% at 50% 0%, rgba(0,0,0,.06), transparent),
-        linear-gradient(180deg, rgba(0,0,0,.02), transparent);
-      border-radius: 1.25rem;
-    }
-    .meta-badge{font-size:.85rem;}
-
-    .section-title{
-      font-weight:700;
-      margin-bottom:1rem;
-    }
-
-    .map-hero{
-      border-radius:12px;
-      overflow:hidden;
-      box-shadow:0 4px 14px rgba(0,0,0,.08);
-    }
-    .map-hero .ratio{--bs-aspect-ratio:66%;}
-    .map-hero arcgis-embedded-map,
-    .map-hero img{
-      display:block;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-    .img-caption{
-      font-size:.9rem;
-      color:#6c757d;
-    }
-
-    /* Centered body layout */
-    .project-body {
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    .section-block {
-      padding: 2.5rem 0;
-      border-top: 1px solid #e3eaf4;
-    }
-    .section-block:first-of-type {
-      border-top: none;
-    }
-
-    /* Meta cards in Summary */
-    .meta-card {
-      padding: 1rem 1.25rem;
-      border-radius: .75rem;
-      background: #ffffff;
-      border: 1px solid #e3eaf4;
-      font-size: .95rem;
-    }
-
-    /* Side dot navigation */
-    .section-dots {
-      position: fixed;
-      top: 50%;
-      right: 2.5rem;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: .75rem;
-      z-index: 1040;
-    }
-
-    /* Base dot shape - same for ALL dots */
-    .section-dot {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      border: 2px solid #c7d7f7;
-      background: #f3f6ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background .2s ease, border-color .2s ease, transform .2s ease;
-      padding: 0;
-    }
-
-    .section-dot:hover {
-      transform: scale(1.15);
-    }
-
-    /* Active state */
-    .section-dot.is-active {
-      background: #0d6efd;
-      border-color: #0d6efd;
-      transform: scale(1.2);
-    }
-
-    /* Top heart dot - SAME circle, just with an icon inside */
-    .section-dot--top i {
-      font-size: 0.55rem;
-      color: #c7d7f7;
-      line-height: 1;
-      pointer-events: none;
-    }
-
-    .section-dot--top.is-active i {
-      color: #ffffff;
-    }
-
-    .section-dot:focus-visible {
-      outline: 2px solid #0d6efd;
-      outline-offset: 4px;
-    }
-
-    /* Hide dots on small screens */
-    @media (max-width: 991.98px) {
-      .section-dots {
-        display: none;
-      }
-    }
-
-    /* Blue Badge */
-    .badge-custom-blue {
-      background-color: #0A4D91 !important;
-      color: #ffffff !important;
-
-    /* Gallery grid */
-    .gallery-grid {
-      margin-top: 1.5rem;
-    }
-    
-    .gallery-card {
-      background: #ffffff;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 6px 18px rgba(0,0,0,.06);
-      padding: 0.6rem 0.6rem 0;
-      transition: transform .18s ease, box-shadow .18s ease;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .gallery-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 26px rgba(0,0,0,.10);
-    }
-    
-    .gallery-card img {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: contain;        /* show the whole map */
-      background-color: #f8f9fa;  /* light frame behind it */
-      border-radius: 10px;
-      cursor: zoom-in;            /* hint that it opens */
-    }
-    
-    .gallery-card figcaption {
-      padding: .75rem 1rem 1rem;
-      font-size: .9rem;
-      color: #6c757d;
-      flex-grow: 1;
-  }
-
-  /* Modal image */
-  .modal-dark-bg {
-      background-color: #000000;
-  }
-    }
-  </style>
+  <!-- ArcGIS embed support -->
+  <script type="module"
+    src="https://js.arcgis.com/embeddable-components/4.33/arcgis-embeddable-components.esm.js">
+  </script>
 </head>
+
 <body>
 
-  <!-- Top navbar -->
-  <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="../index.html">Andrew Peters</a>
-      <div class="ms-auto small">
-        <a class="text-decoration-none" href="index.html#projects">
-          <i class="bi bi-arrow-left-short"></i> Back to Projects
-        </a>
+<nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="../index.html">Andrew Peters</a>
+    <div class="ms-auto small">
+      <a href="../index.html#projects" class="text-decoration-none">
+        <i class="bi bi-arrow-left-short"></i> Back
+      </a>
+    </div>
+  </div>
+</nav>
+
+<main class="container my-5">
+
+  <!-- HERO -->
+  <header class="project-hero p-4 p-md-5 shadow-sm mb-5">
+
+    <div class="row g-4 align-items-center">
+
+      <div class="col-lg-7">
+        <h1 id="title" class="display-5 fw-semibold mb-3"></h1>
+        <p id="description" class="lead mb-3"></p>
+        <div id="badges" class="d-flex flex-wrap gap-2"></div>
       </div>
-    </div>
-  </nav>
 
-  <main class="container my-5">
-    <!-- Side dot nav -->
-    <nav class="section-dots d-none d-lg-flex" aria-label="Section navigation">
-      <!-- top-of-page dot -->
-      <button class="section-dot section-dot--top is-active" data-target="#top" aria-label="Top of page">
-        <i class="bi bi-heart-fill"></i>
-      </button>
-
-      <!-- section dots -->
-      <button class="section-dot" data-target="#summary" aria-label="Summary"></button>
-      <button class="section-dot" data-target="#objective" aria-label="Objective"></button>
-      <button class="section-dot" data-target="#data" aria-label="Data"></button>
-      <button class="section-dot" data-target="#method" aria-label="Method"></button>
-      <button class="section-dot" data-target="#gallery" aria-label="Gallery"></button>
-      <button class="section-dot" data-target="#links" aria-label="Links"></button>
-    </nav>
-
-    <!-- HERO -->
-    <header id="top" class="project-hero p-4 p-md-5 shadow-sm mb-5">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-7">
-          <h1 class="display-5 fw-semibold mb-3">PROJECT TITLE</h1>
-          <p class="lead mb-3">
-            One to two sentence description of what this project does and why it matters.
-          </p>
-          <div class="d-flex flex-wrap gap-2 mb-1">
-            <!-- change or remove badges as needed -->
-            <span class="badge badge-custom-blue meta-badge">Tag One</span>
-            <span class="badge badge-custom-blue meta-badge">Tag Two</span>
-            <span class="badge badge-custom-blue meta-badge">Tag Three</span>
-            <span class="badge text-bg-light border meta-badge">
-              <i class="bi bi-calendar2"></i> Term / Year
-            </span>
-            <span class="badge text-bg-light border meta-badge">
-              <i class="bi bi-tools"></i> Tools used
-            </span>
-          </div>
-        </div>
-
-        <div class="col-lg-5">
-          <figure class="mb-0 map-hero">
-            <div class="ratio">
-              <!-- OPTION A: ArcGIS web map embed -->
-              <!--
-              <arcgis-embedded-map
-                item-id="WEBMAP_ITEM_ID"
-                theme="light"
-                center="LON,LAT"
-                scale="SCALE_VALUE"
-                portal-url="https://YOURORG.maps.arcgis.com">
-              </arcgis-embedded-map>
-              -->
-
-              <!-- OPTION B: Static image thumbnail -->
-              <img src="../assets/PROJECT-THUMBNAIL.jpg" alt="Overview map for PROJECT TITLE">
-            </div>
-          </figure>
-          <figcaption class="img-caption mt-2">
-            Short caption describing the map or image.
-          </figcaption>
-        </div>
+      <div class="col-lg-5">
+        <figure class="map-hero mb-0">
+          <div id="hero-media"></div>
+        </figure>
+        <figcaption id="caption" class="img-caption mt-2"></figcaption>
       </div>
-    </header>
 
-    <!-- BODY -->
-    <div class="project-body">
-      <section id="summary" class="section-block" data-section="summary">
-        <h2 class="section-title">Summary</h2>
-        <p>
-          Brief narrative of the project: what problem you were addressing, your overall
-          approach, and why it is interesting or useful. Aim for one to two short paragraphs.
-        </p>
-        <div class="row g-3 mt-3">
-          <div class="col-md-4">
-            <div class="meta-card h-100">
-              <div class="small text-muted">Time</div>
-              <div>e.g. three week class project, semester capstone, internship task</div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="meta-card h-100">
-              <div class="small text-muted">Role</div>
-              <div>Solo or team, and what you actually did</div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="meta-card h-100">
-              <div class="small text-muted">Deliverable</div>
-              <div>StoryMap, web app, static map series, notebook, etc.</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="objective" class="section-block" data-section="objective">
-        <h2 class="section-title">Objective</h2>
-        <p>
-          One concise statement of the project goal. What question were you trying to
-          answer, or what decision did this help inform?
-        </p>
-      </section>
-
-      <section id="data" class="section-block" data-section="data">
-        <h2 class="section-title">Data</h2>
-        <ul class="mb-0">
-          <li><strong>Datasets:</strong> list main layers, sources, and any key preprocessing.</li>
-          <li><strong>Spatial extent:</strong> study area or region.</li>
-          <li><strong>Time frame:</strong> years or time period covered (if relevant).</li>
-        </ul>
-      </section>
-
-      <section id="method" class="section-block" data-section="method">
-        <h2 class="section-title">Method</h2>
-        <ol class="mb-0">
-          <li>Step 1: data collection, cleaning, or geocoding.</li>
-          <li>Step 2: main analysis (for example, network analysis, interpolation, classification).</li>
-          <li>Step 3: cartography and visualization decisions.</li>
-          <li>Step 4: how you evaluated or validated results.</li>
-        </ol>
-      </section>
-
-      <section id="gallery" class="section-block" data-section="gallery">
-        <h2 class="section-title">Gallery</h2>
-        
-        <div class="row g-3 gallery-grid">
-          <div class="col-12 col-md-6 col-lg-4">
-            <figure class="gallery-card">
-              <img src="project_images/Composite_Map.png"
-                alt="Composite food access RiskScore map with drive-time polygons and food outlets">
-              <figcaption>Composite Food Access Risk map with drive-time polygons and food outlets.</figcaption>
-          </figure>
-        </div>
-          
-      <!-- Template for adding more images to gallery
-        <div class="row g-3 gallery-grid">
-          <div class="col-12 col-md-6 col-lg-4">
-            <figure class="gallery-card">
-              <img src="assets/projects/project/image.png"
-                alt="Short discription">
-              <figcaption>Caption for map.</figcaption>
-          </figure>
-        </div>
-      -->
-      </section>
-
-      <section id="links" class="section-block pb-0" data-section="links">
-        <h2 class="section-title">Links</h2>
-        <ul class="mb-0">
-          <li><a href="https://example.com" target="_blank" rel="noopener">Main project link (StoryMap, web app, etc.)</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Additional resources (GitHub repo, PDF map, etc.)</a></li>
-        </ul>
-      </section>
-
-      <!-- Bottom nav: update hrefs for each project -->
-      <nav class="d-flex justify-content-between align-items-center mt-4 pt-4 border-top">
-        <a class="btn btn-outline-secondary" href="../projects/PREVIOUS-PROJECT.html">
-          <i class="bi bi-arrow-left"></i> Previous
-        </a>
-        <a class="btn btn-primary" href="../index.html#projects">All Projects</a>
-        <a class="btn btn-outline-secondary" href="../projects/NEXT-PROJECT.html">
-          Next <i class="bi bi-arrow-right"></i>
-        </a>
-      </nav>
     </div>
-  </main>
+  </header>
 
-  <footer class="border-top py-4 small">
-    <div class="container d-flex justify-content-between">
-      <div>© <span id="year"></span> Andrew Peters</div>
-      <div class="text-muted">Built with GIS</div>
-    </div>
-  </footer>
+  <!-- BODY -->
+  <div class="project-body">
 
-  <script>
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    <section class="section-block">
+      <h2>Summary</h2>
+      <p id="summary"></p>
+    </section>
 
-    // Dot click -> smooth scroll
-    const dots = document.querySelectorAll('.section-dot');
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        const targetSelector = dot.dataset.target;
-        if (targetSelector === '#top') {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-          const target = document.querySelector(targetSelector);
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }
-      });
-    });
+    <section class="section-block">
+      <h2>Gallery</h2>
+      <div id="gallery" class="row g-3"></div>
+    </section>
 
-    // Sections to track: hero (top) + content sections
-    const sections = [
-      document.getElementById('top'),
-      ...document.querySelectorAll('.section-block[id]')
-    ].filter(Boolean);
+    <section class="section-block">
+      <h2>Links</h2>
+      <ul id="links"></ul>
+    </section>
 
-    // Scroll spy: choose the MOST visible section
-    const observer = new IntersectionObserver(entries => {
-      const visible = entries.filter(e => e.isIntersecting);
-      if (!visible.length) return;
+  </div>
 
-      const mostVisible = visible.reduce((max, entry) =>
-        entry.intersectionRatio > max.intersectionRatio ? entry : max,
-        visible[0]
-      );
+</main>
 
-      const id = '#' + mostVisible.target.id;
-      dots.forEach(dot => {
-        dot.classList.toggle('is-active', dot.dataset.target === id);
-      });
-    }, {
-      root: null,
-      threshold: [0.2, 0.4, 0.6, 0.8],
-      rootMargin: '0px 0px -10% 0px'
-    });
+<footer class="border-top py-4 text-center small">
+  © <span id="year"></span> Andrew Peters
+</footer>
 
-    sections.forEach(section => observer.observe(section));
-  </script>
+<script src="projects.js"></script>
+<script src="project.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
