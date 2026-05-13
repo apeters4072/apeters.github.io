@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title id="page-title">Project</title>
+  <title id="page-title">Project | Andrew Peters</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
@@ -13,112 +13,104 @@
   <link rel="stylesheet" href="../styles.css" />
 
   <style>
-    body {
-      background: #ffffff;
-    }
-
-    /* HERO (NO FRAME) */
-    .project-hero{
+    /* 1. RESTORED HERO STYLES */
+    .project-hero {
       background:
-        radial-gradient(80% 60% at 50% 0%, rgba(13,110,253,.08), transparent),
-        linear-gradient(180deg, rgba(0,0,0,.03), transparent);
+        radial-gradient(80% 60% at 50% 0%, rgba(0,0,0,.06), transparent),
+        linear-gradient(180deg, rgba(0,0,0,.02), transparent);
       border-radius: 1.25rem;
     }
 
-    /* remove hero frame entirely */
     .map-hero {
-      border-radius: 0;
-      overflow: visible;
-      box-shadow: none;
-      background: transparent;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,.08);
     }
-
-    /* HERO IMAGE ONLY (no container styling) */
-    .hero-media img,
-    .hero-media arcgis-embedded-map {
-      width: 100%;
-      height: auto;
+    
+    .map-hero .ratio { --bs-aspect-ratio: 50%; }
+    
+    .map-hero img, .map-hero arcgis-embedded-map {
       display: block;
-      border-radius: 0.75rem;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    /* caption BELOW image only */
-    .hero-caption {
-      font-size: .9rem;
-      color: #6c757d;
-      margin-top: .5rem;
+    /* 2. SIDE DOT NAVIGATION */
+    .section-dots {
+      position: fixed;
+      top: 50%;
+      right: 2.5rem;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      z-index: 1040;
     }
 
-    /* CENTER BODY */
-    .project-body {
-      max-width: 900px;
-      margin: 0 auto;
+    .section-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid #c7d7f7;
+      background: #f3f6ff;
+      cursor: pointer;
+      transition: all .2s ease;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
+    .section-dot.is-active {
+      background: #0d6efd;
+      border-color: #0d6efd;
+      transform: scale(1.2);
+    }
+
+    .section-dot--top i { font-size: 0.55rem; color: #c7d7f7; }
+    .section-dot--top.is-active i { color: #ffffff; }
+
+    @media (max-width: 991.98px) { .section-dots { display: none; } }
+
+    /* 3. LAYOUT & TYPOGRAPHY */
+    .project-body { max-width: 860px; margin: 0 auto; }
+    
     .section-block {
       padding: 2.5rem 0;
-      border-top: 1px solid #e9eef5;
+      border-top: 1px solid #e3eaf4;
     }
+    .section-block:first-of-type { border-top: none; }
 
-    /* REMOVE "BUBBLE" HEADER FEEL */
-    .section-title {
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-      font-size: 1.4rem;
-      padding: 0;
-      border: none;
-      background: none;
-    }
+    .section-title { font-weight: 700; margin-bottom: 1rem; }
 
-    /* METADATA */
     .meta-card {
       padding: 1rem 1.25rem;
       border-radius: .75rem;
-      background: #fff;
+      background: #ffffff;
       border: 1px solid #e3eaf4;
+      font-size: .95rem;
     }
 
-    /* GALLERY */
+    .badge-custom-blue { background-color: #0A4D91 !important; color: #ffffff !important; }
+
+    /* 4. GALLERY */
     .gallery-card {
-      background: #fff;
-      border-radius: 14px;
+      background: #ffffff;
+      border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 6px 18px rgba(0,0,0,.06);
-      padding: 0.5rem;
-      transition: .2s ease;
+      padding: 0.6rem 0.6rem 0;
+      transition: transform .18s ease;
       height: 100%;
     }
+    .gallery-card:hover { transform: translateY(-4px); box-shadow: 0 10px 26px rgba(0,0,0,.10); }
+    .gallery-card img { border-radius: 10px; cursor: zoom-in; width: 100%; background: #f8f9fa; }
+    .gallery-card figcaption { padding: .75rem 1rem 1rem; font-size: .9rem; color: #6c757d; }
 
-    .gallery-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 26px rgba(0,0,0,.12);
-    }
-
-    .gallery-card img {
-      width: 100%;
-      border-radius: 10px;
-      cursor: zoom-in;
-      background: #f8f9fa;
-    }
-
-    .gallery-card figcaption {
-      font-size: .9rem;
-      color: #6c757d;
-      padding: .75rem .5rem .25rem;
-    }
-
-    /* FEATURED FIRST IMAGE (full width) */
-    .col-span-full {
-      grid-column: 1 / -1;
-    }
-
-    /* LIGHTBOX */
-    .modal-dark-bg {
-      background: rgba(0,0,0,.95);
-    }
+    .modal-dark-bg { background-color: #000000; }
   </style>
 </head>
-
 <body>
 
 <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
@@ -126,92 +118,94 @@
     <a class="navbar-brand" href="../index.html">Andrew Peters</a>
     <div class="ms-auto small">
       <a href="../index.html#projects" class="text-decoration-none">
-        <i class="bi bi-arrow-left-short"></i> Back
+        <i class="bi bi-arrow-left-short"></i> Back to Projects
       </a>
     </div>
   </div>
 </nav>
 
 <main class="container my-5">
+  <!-- Dynamic Dot Nav -->
+  <nav id="dynamic-dots" class="section-dots d-none d-lg-flex" aria-label="Section navigation">
+    <button class="section-dot section-dot--top is-active" data-target="#top" aria-label="Top">
+      <i class="bi bi-heart-fill"></i>
+    </button>
+    <!-- Other dots injected via JS -->
+  </nav>
 
-<!-- HERO -->
-<header class="project-hero p-4 p-md-5 mb-5">
-
-  <div class="row g-4 align-items-center">
-
-    <div class="col-lg-7">
-      <h1 id="project-title" class="display-5 fw-semibold mb-3"></h1>
-      <p id="project-description" class="lead mb-3"></p>
-
-      <div id="project-tags" class="d-flex flex-wrap gap-2"></div>
+  <!-- HERO -->
+  <header id="top" class="project-hero p-4 p-md-5 shadow-sm mb-5">
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-7">
+        <h1 id="project-title" class="display-5 fw-semibold mb-3"></h1>
+        <p id="project-description" class="lead mb-3"></p>
+        <div id="project-tags" class="d-flex flex-wrap gap-2 mb-1"></div>
+      </div>
+      <div class="col-lg-5">
+        <figure class="mb-0 map-hero">
+          <div class="ratio" id="hero-container"></div>
+        </figure>
+        <figcaption id="hero-caption" class="img-caption mt-2 small text-muted"></figcaption>
+      </div>
     </div>
+  </header>
 
-    <div class="col-lg-5 hero-media">
-      <div id="hero-container"></div>
-      <div id="hero-caption" class="hero-caption"></div>
-    </div>
+  <div class="project-body">
+    <section id="summary" class="section-block">
+      <h2 class="section-title">Summary</h2>
+      <p id="summary-text"></p>
+      <div class="row g-3 mt-3">
+        <div class="col-md-4"><div class="meta-card h-100"><div class="small text-muted">Time</div><div id="meta-time"></div></div></div>
+        <div class="col-md-4"><div class="meta-card h-100"><div class="small text-muted">Role</div><div id="meta-role"></div></div></div>
+        <div class="col-md-4"><div class="meta-card h-100"><div class="small text-muted">Deliverable</div><div id="meta-deliverable"></div></div></div>
+      </div>
+    </section>
 
+    <section id="objective" class="section-block" style="display:none;">
+      <h2 class="section-title">Objective</h2>
+      <p id="objective-text"></p>
+    </section>
+
+    <section id="data" class="section-block" style="display:none;">
+      <h2 class="section-title">Data</h2>
+      <ul id="sources-list" class="mb-0"></ul>
+    </section>
+
+    <section id="method" class="section-block" style="display:none;">
+      <h2 class="section-title">Method</h2>
+      <ol id="method-list" class="mb-0"></ol>
+    </section>
+
+    <section id="gallery" class="section-block" style="display:none;">
+      <h2 class="section-title">Gallery</h2>
+      <div id="gallery-grid" class="row g-3"></div>
+    </section>
+
+    <section id="links" class="section-block" style="display:none;">
+      <h2 class="section-title">Links</h2>
+      <ul id="links-list" class="mb-0"></ul>
+    </section>
+
+    <!-- Project Navigation -->
+    <nav class="d-flex justify-content-between align-items-center mt-4 pt-4 border-top">
+        <a id="prev-link" class="btn btn-outline-secondary" href="#">
+          <i class="bi bi-arrow-left"></i> Previous
+        </a>
+        <a class="btn btn-primary" href="../index.html#projects">All Projects</a>
+        <a id="next-link" class="btn btn-outline-secondary" href="#">
+          Next <i class="bi bi-arrow-right"></i>
+        </a>
+    </nav>
   </div>
-</header>
-
-<div class="project-body">
-
-  <!-- SUMMARY -->
-  <section id="summary" class="section-block">
-    <h2 class="section-title">Summary</h2>
-
-    <p id="summary-text"></p>
-
-    <div class="row g-3 mt-3">
-      <div class="col-md-4"><div class="meta-card"><div class="text-muted small">Time</div><div id="meta-time"></div></div></div>
-      <div class="col-md-4"><div class="meta-card"><div class="text-muted small">Role</div><div id="meta-role"></div></div></div>
-      <div class="col-md-4"><div class="meta-card"><div class="text-muted small">Deliverables</div><div id="meta-deliverable"></div></div></div>
-    </div>
-  </section>
-
-  <!-- OBJECTIVE -->
-  <section id="objective" class="section-block">
-    <h2 class="section-title">Objective</h2>
-    <p id="objective-text"></p>
-  </section>
-
-  <!-- LINKS -->
-  <section id="links" class="section-block">
-    <h2 class="section-title">Links</h2>
-    <ul id="links-list"></ul>
-  </section>
-
-  <!-- GALLERY -->
-  <section id="gallery" class="section-block">
-    <h2 class="section-title">Gallery</h2>
-
-    <div id="gallery-grid" class="row g-3"></div>
-  </section>
-
-  <!-- METHODS -->
-  <section id="method" class="section-block">
-    <h2 class="section-title">Methods</h2>
-    <ol id="method-list"></ol>
-  </section>
-
-  <!-- SOURCES -->
-  <section id="sources" class="section-block">
-    <h2 class="section-title">Sources</h2>
-    <ul id="sources-list"></ul>
-  </section>
-
-</div>
 </main>
 
-<!-- LIGHTBOX -->
-<div class="modal fade" id="galleryModal">
+<!-- Lightbox remains same -->
+<div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content modal-dark-bg border-0">
-      <div class="modal-header border-0">
-        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body text-center">
-        <img class="img-fluid modal-img">
+      <div class="modal-header border-0"><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body text-center pt-0">
+        <img src="" class="img-fluid w-100 modal-img">
         <p class="text-light small mt-2 modal-caption"></p>
       </div>
     </div>
@@ -219,113 +213,123 @@
 </div>
 
 <footer class="border-top py-4 small text-center">
-  © <span id="year"></span> Andrew Peters
+  <div class="container d-flex justify-content-between">
+    <div>© <span id="year"></span> Andrew Peters</div>
+    <div class="text-muted">Built with GIS</div>
+  </div>
 </footer>
 
 <script src="../projects.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("year").textContent = new Date().getFullYear();
+  const id = new URLSearchParams(window.location.search).get("id");
+  const projectIndex = projects.findIndex(p => p.id === id);
+  const project = projects[projectIndex];
 
-const id = new URLSearchParams(window.location.search).get("id");
-const project = projects.find(p => p.id === id);
+  if (!project) window.location.href = '../index.html';
 
-if (!project) throw new Error("Project not found");
+  // Populating Content
+  document.getElementById("page-title").textContent = `${project.title} | Andrew Peters`;
+  document.getElementById("project-title").textContent = project.title;
+  document.getElementById("project-description").textContent = project.description;
+  document.getElementById("project-tags").innerHTML = (project.tags || []).map(t => `<span class="badge badge-custom-blue">${t}</span>`).join("");
 
-/* HERO */
-document.getElementById("project-title").textContent = project.title;
-document.getElementById("project-description").textContent = project.description;
+  const hero = document.getElementById("hero-container");
+  if (project.hero?.type === "arcgis") {
+    hero.innerHTML = `<arcgis-embedded-map item-id="${project.hero.itemId}" theme="light"></arcgis-embedded-map>`;
+  } else {
+    hero.innerHTML = `<img src="../${project.hero.src}" alt="${project.title}">`;
+  }
+  document.getElementById("hero-caption").textContent = project.hero?.caption || "";
 
-/* TAGS */
-document.getElementById("project-tags").innerHTML =
-  (project.tags || []).map(t => `<span class="badge text-bg-primary">${t}</span>`).join("");
+  document.getElementById("summary-text").textContent = project.summary || "";
+  document.getElementById("meta-time").textContent = project.time || "";
+  document.getElementById("meta-role").textContent = project.role || "";
+  document.getElementById("meta-deliverable").textContent = project.deliverable || "";
 
-/* HERO IMAGE OR MAP */
-const hero = document.getElementById("hero-container");
+  // Helper to show sections only if data exists
+  const setupSection = (id, data, listId, isList = true) => {
+    if (data && data.length > 0) {
+      document.getElementById(id).style.display = 'block';
+      if(listId) {
+        document.getElementById(listId).innerHTML = isList 
+          ? data.map(i => `<li>${i}</li>`).join("")
+          : data;
+      }
+    }
+  };
 
-if (project.hero?.type === "arcgis") {
-  hero.innerHTML = `<arcgis-embedded-map item-id="${project.hero.itemId}" theme="light"></arcgis-embedded-map>`;
-} else {
-  hero.innerHTML = `<img src="../${project.hero.src}" alt="">`;
-}
+  setupSection('objective', project.objective, 'objective-text', false);
+  setupSection('method', project.method, 'method-list');
+  setupSection('data', project.sources, 'sources-list');
 
-document.getElementById("hero-caption").textContent =
-  project.hero?.caption || "";
+  if (project.links) {
+    document.getElementById('links').style.display = 'block';
+    document.getElementById('links-list').innerHTML = project.links.map(l => `<li><a href="${l.url}" target="_blank">${l.label}</a></li>`).join("");
+  }
 
-/* SUMMARY */
-document.getElementById("summary-text").textContent = project.summary || "";
-document.getElementById("meta-time").textContent = project.time || "";
-document.getElementById("meta-role").textContent = project.role || "";
-document.getElementById("meta-deliverable").textContent = project.deliverable || "";
-
-/* OBJECTIVE */
-document.getElementById("objective-text").textContent = project.objective || "";
-
-/* LINKS */
-if (project.links || project.githubLink) {
-  let html = "";
-
-  (project.links || []).forEach(l =>
-    html += `<li><a href="${l.url}" target="_blank">${l.label}</a></li>`
-  );
-
-  if (project.githubLink)
-    html += `<li><a href="${project.githubLink}" target="_blank">GitHub</a></li>`;
-
-  document.getElementById("links-list").innerHTML = html;
-}
-
-/* GALLERY (FIXED ODD IMAGE LOGIC) */
-const grid = document.getElementById("gallery-grid");
-
-if (project.gallery?.length) {
-
-  const items = [...project.gallery];
-
-  const isOdd = items.length % 2 === 1;
-
-  grid.innerHTML = items.map((img, i) => {
-    const full = isOdd && i === 0;
-
-    return `
-      <div class="col-12 col-md-6 ${full ? "col-span-full" : ""}">
+  if (project.gallery?.length) {
+    document.getElementById('gallery').style.display = 'block';
+    document.getElementById('gallery-grid').innerHTML = project.gallery.map(img => `
+      <div class="col-12 col-md-6">
         <figure class="gallery-card">
           <img src="../${img.src}" alt="${img.caption}">
           <figcaption>${img.caption}</figcaption>
         </figure>
-      </div>
-    `;
-  }).join("");
+      </div>`).join("");
+  }
 
-  /* LIGHTBOX */
-  const modal = new bootstrap.Modal(document.getElementById("galleryModal"));
-  const modalImg = document.querySelector(".modal-img");
-  const modalCap = document.querySelector(".modal-caption");
+  // Prev/Next Logic
+  const prevBtn = document.getElementById('prev-link');
+  const nextBtn = document.getElementById('next-link');
+  if(projectIndex > 0) prevBtn.href = `project_page.html?id=${projects[projectIndex-1].id}`;
+  else prevBtn.classList.add('disabled');
+  if(projectIndex < projects.length - 1) nextBtn.href = `project_page.html?id=${projects[projectIndex+1].id}`;
+  else nextBtn.classList.add('disabled');
 
-  document.querySelectorAll(".gallery-card img").forEach(img => {
-    img.addEventListener("click", () => {
-      modalImg.src = img.src;
-      modalCap.textContent = img.alt;
+  // --- DOT NAV & SCROLL SPY LOGIC ---
+  const dotNav = document.getElementById('dynamic-dots');
+  const contentSections = document.querySelectorAll('.section-block');
+  
+  contentSections.forEach(sec => {
+    if(sec.style.display !== 'none') {
+      const btn = document.createElement('button');
+      btn.className = 'section-dot';
+      btn.dataset.target = `#${sec.id}`;
+      btn.setAttribute('aria-label', sec.id);
+      dotNav.appendChild(btn);
+    }
+  });
+
+  const allDots = document.querySelectorAll('.section-dot');
+  allDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const target = document.querySelector(dot.dataset.target);
+      if (dot.dataset.target === '#top') window.scrollTo({ top: 0, behavior: 'smooth' });
+      else target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    const visible = entries.filter(e => e.isIntersecting);
+    if (!visible.length) return;
+    const mostVisible = visible.reduce((max, entry) => entry.intersectionRatio > max.intersectionRatio ? entry : max);
+    allDots.forEach(dot => dot.classList.toggle('is-active', dot.dataset.target === `#${mostVisible.target.id}`));
+  }, { threshold: [0.2, 0.5, 0.8], rootMargin: '0px 0px -20% 0px' });
+
+  [document.getElementById('top'), ...contentSections].forEach(s => { if(s.style.display !== 'none') observer.observe(s); });
+
+  // Lightbox
+  const modal = new bootstrap.Modal(document.getElementById('galleryModal'));
+  document.querySelectorAll('.gallery-card img').forEach(img => {
+    img.addEventListener('click', () => {
+      document.querySelector('.modal-img').src = img.src;
+      document.querySelector('.modal-caption').textContent = img.alt;
       modal.show();
     });
   });
-}
-
-/* METHODS */
-if (project.method?.length) {
-  document.getElementById("method-list").innerHTML =
-    project.method.map(m => `<li>${m}</li>`).join("");
-}
-
-/* SOURCES */
-if (project.sources?.length) {
-  document.getElementById("sources-list").innerHTML =
-    project.sources.map(s => `<li>${s}</li>`).join("");
-}
-
 </script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
