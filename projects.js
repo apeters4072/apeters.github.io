@@ -73,7 +73,75 @@ const projects = [
     method: null,
     
     sources: [
-      "OSM",
+      "- OpenStreetMap vector data",
+      "- NaturalEarth vector and raster data",
+      "- wafflehouse.com for store locations",
+      "- USGS Elevation data",
+      "- USGS Hydrography data",
+      "- Wikipedia text information",
+    ],
+      
+  }
+
+  //*******************************************************************************
+  
+  {
+    // Project Information
+    id: "himalayas",
+    title: "The Himalayas",
+    description: "Mapping the highest peaks in the world",
+    hero: {
+      type: "image",
+      src: "assets/projects/The Himalayas/The Himalayas.png",
+      caption: "The Himalayas"
+    },
+    category: [
+      "carto",
+      "school"
+    ],
+    tags: [
+      "ArcGIS Pro",
+      "Cartography"
+    ],
+    githubLink: null,
+    featured: false,
+    year: 2024,
+
+    // Project Page elements
+    summary: "This map visualizes the Himalayas using John Nelson's 'Imhof Style' and provides information on the highest peaks within the mountain range.",
+    time: "One week",
+    role: "Individual",
+    deliverable: "Softcopy static map",
+
+    objective: "This map was created for a weekly assignment in GIS-302: Cartography. The objective of the lab was to create a 'Cool Map' using an ArcGIS style from the ArcGIS Pro Styles 'Creative Styles' selection. The content of the map was open-ended, and left to the map-maker to decide.",
+ 
+    links: [
+      {
+        label: "ArcGIS Pro Styles - Creative Styles",
+        url: "https://esri-styles.maps.arcgis.com/home/group.html?sortField=modified&sortOrder=desc&id=7b1f5383c2c340acb08bdd5d69bf24df#content"
+      },
+
+      {
+        label: "Imhof Style by John Nelson",
+        url: "https://esri-styles.maps.arcgis.com/home/item.html?id=1f25b31793cd4e7391b0cd51b9b79783"
+      },
+    ],
+
+    gallery: [
+      {
+        type: "image",
+        src: "assets/projects/The Himalayas/The Himalayas.png",
+        caption: "The Himalayas"
+      },    
+    ],
+
+    method: null,
+    
+    sources: [
+      "- Imhof Style | ESRI, John Nelson",
+      "- Mountain Range Boundary | Zendodo.org",
+      "- Peak Information | Wikipedia",
+      "- Terrain Data | Earthstar Geographics, ESRI",
     ],
       
   }
