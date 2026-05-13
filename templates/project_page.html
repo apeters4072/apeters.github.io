@@ -3,32 +3,49 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project | Andrew Peters • Portfolio</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <title id="page-title">Project</title>
 
-  <link rel="stylesheet" href="../styles.css" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
 
-  <!-- ArcGIS embed support -->
-  <script type="module"
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+
+  <!-- ArcGIS support -->
+  <script
+    type="module"
     src="https://js.arcgis.com/embeddable-components/4.33/arcgis-embeddable-components.esm.js">
   </script>
+
+  <link rel="stylesheet" href="../styles.css" />
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
   <div class="container">
-    <a class="navbar-brand" href="../index.html">Andrew Peters</a>
+
+    <a class="navbar-brand" href="../index.html">
+      Andrew Peters
+    </a>
+
     <div class="ms-auto small">
       <a href="../index.html#projects" class="text-decoration-none">
-        <i class="bi bi-arrow-left-short"></i> Back
+        <i class="bi bi-arrow-left-short"></i>
+        Back to Projects
       </a>
     </div>
+
   </div>
 </nav>
 
+<!-- MAIN -->
 <main class="container my-5">
 
   <!-- HERO -->
@@ -36,53 +53,409 @@
 
     <div class="row g-4 align-items-center">
 
+      <!-- LEFT -->
       <div class="col-lg-7">
-        <h1 id="title" class="display-5 fw-semibold mb-3"></h1>
-        <p id="description" class="lead mb-3"></p>
-        <div id="badges" class="d-flex flex-wrap gap-2"></div>
+
+        <h1 id="project-title" class="display-5 fw-semibold mb-3"></h1>
+
+        <p id="project-description" class="lead mb-3"></p>
+
+        <div
+          id="project-tags"
+          class="d-flex flex-wrap gap-2 mb-3">
+        </div>
+
       </div>
 
+      <!-- RIGHT -->
       <div class="col-lg-5">
-        <figure class="map-hero mb-0">
-          <div id="hero-media"></div>
+
+        <figure class="mb-0">
+
+          <div id="hero-container"></div>
+
+          <figcaption
+            id="hero-caption"
+            class="text-secondary small mt-2">
+          </figcaption>
+
         </figure>
-        <figcaption id="caption" class="img-caption mt-2"></figcaption>
+
       </div>
 
     </div>
+
   </header>
 
   <!-- BODY -->
   <div class="project-body">
 
-    <section class="section-block">
-      <h2>Summary</h2>
-      <p id="summary"></p>
+    <!-- SUMMARY -->
+    <section id="summary-section" class="section-block">
+
+      <h2 class="section-title">Summary</h2>
+
+      <p id="summary-text"></p>
+
+      <div class="row g-3 mt-3">
+
+        <div class="col-md-4">
+          <div class="meta-card h-100">
+            <div class="small text-muted">Time</div>
+            <div id="meta-time"></div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="meta-card h-100">
+            <div class="small text-muted">Role</div>
+            <div id="meta-role"></div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="meta-card h-100">
+            <div class="small text-muted">Deliverables</div>
+            <div id="meta-deliverable"></div>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <section class="section-block">
-      <h2>Gallery</h2>
-      <div id="gallery" class="row g-3"></div>
+    <!-- OBJECTIVE -->
+    <section id="objective-section" class="section-block">
+
+      <h2 class="section-title">Objective</h2>
+
+      <p id="objective-text"></p>
+
     </section>
 
-    <section class="section-block">
-      <h2>Links</h2>
-      <ul id="links"></ul>
+    <!-- LINKS -->
+    <section id="links-section" class="section-block">
+
+      <h2 class="section-title">Links</h2>
+
+      <ul id="links-list"></ul>
+
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery-section" class="section-block">
+
+      <h2 class="section-title">Gallery</h2>
+
+      <div id="gallery-grid" class="row g-3"></div>
+
+    </section>
+
+    <!-- METHODS -->
+    <section id="method-section" class="section-block">
+
+      <h2 class="section-title">Method</h2>
+
+      <ol id="method-list"></ol>
+
+    </section>
+
+    <!-- SOURCES -->
+    <section id="sources-section" class="section-block">
+
+      <h2 class="section-title">Sources</h2>
+
+      <ul id="sources-list"></ul>
+
     </section>
 
   </div>
 
 </main>
 
-<footer class="border-top py-4 text-center small">
+<!-- FOOTER -->
+<footer class="border-top py-4 small text-center">
+
   © <span id="year"></span> Andrew Peters
+
 </footer>
 
-<script src="projects.js"></script>
-<script src="project.js"></script>
+<!-- DATA -->
+<script src="../projects.js"></script>
 
+<!-- RENDER ENGINE -->
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+/****************************************
+ * GET PROJECT ID
+ ****************************************/
+
+const params =
+  new URLSearchParams(window.location.search);
+
+const projectId =
+  params.get("id");
+
+/****************************************
+ * FIND PROJECT
+ ****************************************/
+
+const project =
+  projects.find(p => p.id === projectId);
+
+/****************************************
+ * HANDLE MISSING PROJECT
+ ****************************************/
+
+if (!project) {
+
+  document.body.innerHTML = `
+    <div class="container py-5 text-center">
+      <h1>Project Not Found</h1>
+    </div>
+  `;
+
+  throw new Error("Project not found");
+}
+
+/****************************************
+ * PAGE TITLE
+ ****************************************/
+
+document.title =
+  `${project.title} | Andrew Peters`;
+
+/****************************************
+ * HERO TEXT
+ ****************************************/
+
+document.getElementById("project-title").textContent =
+  project.title;
+
+document.getElementById("project-description").textContent =
+  project.description;
+
+/****************************************
+ * TAGS
+ ****************************************/
+
+document.getElementById("project-tags").innerHTML =
+  (project.tags || [])
+    .map(tag =>
+      `<span class="badge text-bg-light border">${tag}</span>`
+    )
+    .join("");
+
+/****************************************
+ * HERO MEDIA
+ ****************************************/
+
+const heroContainer =
+  document.getElementById("hero-container");
+
+if (project.hero?.type === "arcgis") {
+
+  heroContainer.innerHTML = `
+    <arcgis-embedded-map
+      item-id="${project.hero.itemId}"
+      theme="light">
+    </arcgis-embedded-map>
+  `;
+
+} else {
+
+  heroContainer.innerHTML = `
+    <img
+      src="../${project.hero.src}"
+      class="img-fluid rounded"
+      alt="${project.title}">
+  `;
+}
+
+document.getElementById("hero-caption").textContent =
+  project.hero?.caption || "";
+
+/****************************************
+ * SUMMARY
+ ****************************************/
+
+if (project.summary) {
+
+  document.getElementById("summary-text").textContent =
+    project.summary;
+
+  document.getElementById("meta-time").textContent =
+    project.time || "N/A";
+
+  document.getElementById("meta-role").textContent =
+    project.role || "N/A";
+
+  document.getElementById("meta-deliverable").textContent =
+    project.deliverable || "N/A";
+
+} else {
+
+  document.getElementById("summary-section").style.display =
+    "none";
+}
+
+/****************************************
+ * OBJECTIVE
+ ****************************************/
+
+if (project.objective) {
+
+  document.getElementById("objective-text").textContent =
+    project.objective;
+
+} else {
+
+  document.getElementById("objective-section").style.display =
+    "none";
+}
+
+/****************************************
+ * METHODS
+ ****************************************/
+
+if (project.method?.length) {
+
+  document.getElementById("method-list").innerHTML =
+    project.method
+      .map(step => `<li>${step}</li>`)
+      .join("");
+
+} else {
+
+  document.getElementById("method-section").style.display =
+    "none";
+}
+
+/****************************************
+ * SOURCES
+ ****************************************/
+
+if (project.sources?.length) {
+
+  document.getElementById("sources-list").innerHTML =
+    project.sources
+      .map(source => `<li>${source}</li>`)
+      .join("");
+
+} else {
+
+  document.getElementById("sources-section").style.display =
+    "none";
+}
+
+/****************************************
+ * GALLERY
+ ****************************************/
+
+if (project.gallery?.length) {
+
+  document.getElementById("gallery-grid").innerHTML =
+    project.gallery.map(item => {
+
+      if (item.type === "arcgis") {
+
+        return `
+          <div class="col-12">
+            <figure class="gallery-card">
+
+              <arcgis-embedded-map
+                item-id="${item.itemId}"
+                theme="light">
+              </arcgis-embedded-map>
+
+              <figcaption>
+                ${item.caption}
+              </figcaption>
+
+            </figure>
+          </div>
+        `;
+      }
+
+      return `
+        <div class="col-12 col-md-6 col-lg-4">
+
+          <figure class="gallery-card">
+
+            <img
+              src="../${item.src}"
+              class="img-fluid rounded"
+              alt="${item.caption}">
+
+            <figcaption>
+              ${item.caption}
+            </figcaption>
+
+          </figure>
+
+        </div>
+      `;
+    }).join("");
+
+} else {
+
+  document.getElementById("gallery-section").style.display =
+    "none";
+}
+
+/****************************************
+ * LINKS
+ ****************************************/
+
+if (project.links?.length || project.githubLink) {
+
+  let html = "";
+
+  if (project.links?.length) {
+
+    html += project.links
+      .map(link => `
+        <li>
+          <a
+            href="${link.url}"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            ${link.label}
+
+          </a>
+        </li>
+      `)
+      .join("");
+  }
+
+  if (project.githubLink) {
+
+    html += `
+      <li>
+        <a
+          href="${project.githubLink}"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          GitHub Repository
+
+        </a>
+      </li>
+    `;
+  }
+
+  document.getElementById("links-list").innerHTML =
+    html;
+
+} else {
+
+  document.getElementById("links-section").style.display =
+    "none";
+}
+
 </script>
 
 </body>
