@@ -1,41 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Site Meta -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/x-icon" href="assets/images/Globe_Icon.png">
+
+  <!-- SEO -->
   <title>Andrew Peters • Portfolio</title>
+  <meta name = "description" content = "Portfolio of Andrew Peters - GIS, Remote Sensing, Cartography, and Geospatial Analysis."/>
+  <meta property = "og:title" content = "GIS, Remote Sensing, Cartography, and Geospatial Analysis"/>
+  <meta property = "og:image" content = "assets/image/portfolio-preview.png"/>
+  <meta property = "og:type" content = "website"/>
 
-  <!-- CSS libraries -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    rel="stylesheet"
-  />
+  <!-- Tab Icon -->
+  <link rel="icon" type="image/x-icon" href="assets/images/Globe_Icon.png">
+  
+  <!-- CSS Libraries -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
 
-  <!-- Site styles -->
+  <!-- Custom CSS Style -->
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- Metadata -->
-  <meta
-    name = "description"
-    content = "Portfolio of Andrew Peters - GIS, Remote Sensing, Cartography, and Geospatial Analysis."
-  />
-  <meta
-    property = "og:title"
-    content = "GIS, Remote Sensing, Cartography, and Geospatial Analysis"
-  />
-  <meta
-    property = "og:image"
-    content = "assets/image/portfolio-preview.png"
-  />
-  <meta
-    property = "og:type"
-    content = "website"
-  />
   
 </head>
 
@@ -49,7 +34,10 @@
   
   <nav class="navbar navbar-expand-lg sticky-top bg-white shadow-sm">
     <div class="container">
+      <!-- Name/Logo -->
       <a class="navbar-brand fw-semibold" href="#home">Andrew Peters</a>
+
+      <!-- Small screen toggle button -->
       <button
         class="navbar-toggler"
         type="button"
@@ -62,7 +50,10 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
+      <!-- Collapsible Menu Content -->
       <div id="nav" class="collapse navbar-collapse">
+        
+        <!-- Navigation Links -->
         <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
           <li class="nav-item">
             <a class="nav-link" href="#projects">Projects</a>
@@ -79,7 +70,7 @@
           <li class="nav-item">
             <a class="nav-link" href="#contact">Contact</a>
           </li>
-          
+
           <li class="nav-item">
             <a class="btn btn-resume nav-link text-white"
               href="assets/documents/AndrewPeters_Resume.pdf"
@@ -98,10 +89,13 @@
     <div class="container text-center">
       <p class="eyebrow">GIS • Remote Sensing • Data Visualization</p>
       <h1 class="display-5 fw-bold">Hi, I’m Andrew.</h1>
+
+      <!-- Typing Animation -->
       <p class="lead mb-4">
         <span id="typed"></span
         ><span class="cursor" aria-hidden="true">|</span>
       </p>
+      
       <a class="btn btn-primary" href="#projects">
         Explore <i class="bi bi-arrow-down ms-1"></i>
       </a>
@@ -127,7 +121,7 @@
         </p>
       </div>
 
-      <!-- Filters -->
+      <!-- Project Card Filters -->
       <div class="filters text-center mb-4">
         <button class="btn btn-filter active" data-filter="all">All</button>
         <button class="btn btn-filter" data-filter="carto">Cartography</button>
@@ -139,7 +133,7 @@
         <button class="btn btn-filter" data-filter="school">School Work</button>
       </div>
 
-      <!-- PROJECT GRID: every project card lives inside this row -->
+      <!-- Project Card Gallery -->
       <div id = "project-grid" class = "row g-4"></div>
     </div>
   </section>
@@ -147,6 +141,7 @@
   <!--***********************************
   Skills
   ************************************-->
+  
   <section id="skills" class="section section-alt">
     <div class="container">
       <div class="section-header">
@@ -154,6 +149,7 @@
         <p class="section-subtitle">Tools &amp; technologies I use regularly.</p>
       </div>
 
+      <!-- Static grouping of skills -->
       <div class="row g-3">
         <div class="col-6 col-md-3">
           <div class="skill">ArcGIS Pro</div>
