@@ -389,8 +389,8 @@ const projects = [
 
     gallery: [
       {
-        type: "agol",
-        itemId: "7fa0d0d8788245f6a91f36ea45620878",
+        type: "image",
+        itemId: "assets/projects/Metro Phoenix Temperature Study/AZ_Desert.jpg",
         caption: "Metro Phoenix Temperature Study StoryMap"
       },    
     ],
