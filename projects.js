@@ -73,12 +73,12 @@ const projects = [
     method: null,
     
     sources: [
-      "- Roads, Boundaries | OpenStreetMap",
-      "- Boudaries, Hypso Tint | NaturalEarth",
-      "- Elevation data | USGS",
-      "- Hydrography data | USGS",
-      "- Text Information | Wikipedia",
-      "- Waffle House locations | wafflehouse.com",
+      "Roads, Boundaries | OpenStreetMap",
+      "Boudaries, Hypso Tint | NaturalEarth",
+      "Elevation data | USGS",
+      "Hydrography data | USGS",
+      "Text Information | Wikipedia",
+      "Waffle House locations | wafflehouse.com",
     ],
       
   },
@@ -138,10 +138,73 @@ const projects = [
     method: null,
     
     sources: [
-      "- Imhof Style | ESRI, John Nelson",
-      "- Mountain Range Boundary | Zendodo.org",
-      "- Peak Information | Wikipedia",
-      "- Terrain Data | Earthstar Geographics, ESRI",
+      "Imhof Style | ESRI, John Nelson",
+      "Mountain Range Boundary | Zendodo.org",
+      "Peak Information | Wikipedia",
+      "Terrain Data | Earthstar Geographics, ESRI",
+    ],
+      
+  },
+
+  //*******************************************************************************
+
+ {
+    // Project Information
+    id: "svi-slave-populations",
+    title: "Social Vulnerability and Slave Populations",
+    description: "Exploring the relationship between Social Vulnerability and historical slave populations",
+    hero: {
+      type: "image",
+      src: "assets/projects/SVI Trends and Slave Populations/SVI Trends Amongst Slave Populations.png",
+      caption: "Mapping the Relationship between Slave Populations and Social Vulnerabilty in the Southern States of the United States."
+    },
+    category: [
+      "geo-analysis",
+      "school"
+    ],
+    tags: [
+      "ArcGIS Pro",
+      "Social Vulnerability",
+    ],
+    githubLink: null,
+    featured: false,
+    year: 2025,
+
+    // Project Page elements
+    summary: "This project explores the relationship between the CDC's Social Vulnerability Index (SVI) and historical slave populations in the southeastern United States. It categorizes the relationship through a multivirate color scale; darker red represents areas of high risk (According to the SVI) and high concentrations of slaves, and depicts the opposite with light red.",
+    time: "One Week",
+    role: "Individual",
+    deliverable: "Softcopy static map",
+
+    objective: "Objective of project",
+ 
+    links: [
+      {
+        label: "Social Vulnerability Index (CDC)",
+        url: "https://www.atsdr.cdc.gov/place-health/php/svi/index.html"
+      },
+    ],
+
+    gallery: [
+      {
+        type: "image",
+        src: "assets/projects/SVI Trends and Slave Populations/SVI Trends Amongst Slave Populations.png",
+        caption: "Mapping the Relationship between Slave Populations and Social Vulnerabilty in the Southern States of the United States."
+      },    
+    ],
+
+    method: [
+      "1. Georectified the 1860 Slave Population map by creating 16 tie points and applying the Spline transformation",
+      "2. Imported the SVI data and symbolized by overall risk",
+      "3. Applied a Hard Light blend mode to darken the shade of each census tract based upon the shading of the county it fell over on the slave population map",
+      "4. Applied general cartographic refinements to improve appearance and readability",
+    ],
+    
+    sources: [
+      "Social Vulnerability index | Centers for Disease Control and Prevention/ Agency for Toxic Substances and Disease Registry/ Geospatial Research, Analysis, and Services Program- 2022 Social Vulnerability Index",
+      "1860 Slave Populations | Library of Congress",
+      "Boundaries | NaturalEarth",
+      "Textual information refined with ChatGPT
     ],
       
   },
@@ -220,13 +283,16 @@ const projects = [
     ],
     
     sources: [
-      "- Data 1 | Source",
-      "- Data 2 | Source",
-      "- Data 3 | Source",
-      "- Data 4 | Source",
-      "- Data 5 | Source",
+      "Data 1 | Source",
+      "Data 2 | Source",
+      "Data 3 | Source",
+      "Data 4 | Source",
+      "Data 5 | Source",
     ],
       
   },
+
+  //*******************************************************************************
+  
 */
 ];
