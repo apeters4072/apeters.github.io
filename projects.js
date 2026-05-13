@@ -176,7 +176,7 @@ const projects = [
     role: "Individual",
     deliverable: "Softcopy static map",
 
-    objective: "Objective of project",
+    objective: "This map was created for a weekly assignment in REM-202: Intro to Imagery Science. The objective of the lab was to georectify a scanned image of historical map using ArcGIS Pro, and then to explore the relationship between the slave populations depicted on that map and modern Social Vulnerability trends.",
  
     links: [
       {
@@ -194,10 +194,10 @@ const projects = [
     ],
 
     method: [
-      "1. Georectified the 1860 Slave Population map by creating 16 tie points and applying the Spline transformation",
-      "2. Imported the SVI data and symbolized by overall risk",
-      "3. Applied a Hard Light blend mode to darken the shade of each census tract based upon the shading of the county it fell over on the slave population map",
-      "4. Applied general cartographic refinements to improve appearance and readability",
+      "Georectified the 1860 Slave Population map by creating 16 tie points and applying the Spline transformation",
+      "Imported the SVI data and symbolized by overall risk",
+      "Applied a Hard Light blend mode to darken the shade of each census tract based upon the shading of the county it fell over on the slave population map",
+      "Applied general cartographic refinements to improve appearance and readability",
     ],
     
     sources: [
@@ -210,8 +210,77 @@ const projects = [
   },
 
   //*******************************************************************************
+
+  {
+    // Project Information
+    id: "covid-cases-us-colleges",
+    title: "Coronavirus Cases at U.S. Colleges and Universities",
+    description: "Visualizing college COVID cases across the United States.",
+    hero: {
+      type: "image",
+      src: "assets/projects/College COVID Cases/Coronavirus Cases at US Colleges and Universites.jpg",
+      caption: "Coronavirus Cases at U.S. Colleges and Universities in the continental United States."
+    },
+    category: [
+      "carto",
+      "school"
+    ],
+    tags: [
+      "ArcGIS Pro",
+      "COVID-19",
+      "Geocoding",
+    ],
+    githubLink: null,
+    featured: false,
+    year: 2024,
+
+    // Project Page elements
+    summary: "This map visualizes college and university COVID-19 cases using John Nelson's 'Firefly' style. Additionally, the map portrays the average number of college COVID-19 cases per state.",
+    time: "One week",
+    role: "Individual",
+    deliverable: "Softcopy static map",
+
+    objective: "This map was created for a weekly assignment in GIS-302: Cartography. The objective of the lab was geocode a textual database of college COVID cases and visualize those locations by the number of cases per school.",
+ 
+    links: [
+      {
+        label: "College COVID-19 Dataset (New York Times)",
+        url: "https://github.com/nytimes/covid-19-data/tree/master/colleges"
+      },
+
+      {
+        label: "Firefly Style by John Neslon",
+        url: "https://hub.arcgis.com/content/93a6d9ea3b54478193ba566ab9d8b748/about"
+      },
+      
+    ],
+
+    gallery: [
+      {
+        type: "image",
+        src: "assets/projects/College COVID Cases/Coronavirus Cases at US Colleges and Universites.jpg",
+        caption: "Coronavirus Cases at U.S. Colleges and Universities in the continental United States."
+      },    
+    ],
+
+    method: [
+      "Geocoded the college COVID cases database, which only listed the reporting college for location.",
+      "Symbolized the quantity of cases per college",
+      "Created a normalized histogram that compares the average number of college COVID cases per state",
+    ],
+    
+    sources: [
+      "Boundaries | NaturalEarth",
+      "COVID-19 at U.S. Colleges and Universities | New York Times",
+      "Firefly style | ESRI, John Nelson",
+    ],
+      
+  },
+
+  //*******************************************************************************
   
 /*
+
   {
     // Project Information
     id: "project-id",
@@ -275,11 +344,11 @@ const projects = [
     ],
 
     method: [
-      "1. Step 1",
-      "2. Step 2",
-      "3. Step 3",
-      "4. Step 4",
-      "5. Step 5",
+      "Step 1",
+      "Step 2",
+      "Step 3",
+      "Step 4",
+      "Step 5",
     ],
     
     sources: [
