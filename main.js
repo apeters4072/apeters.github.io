@@ -100,7 +100,7 @@ function renderProjects(projectArray) {
         <div class="card h-100 border-0 shadow-sm">
 
           <img
-            src="${project.image}"
+            src="${project.hero.src}"
             class="card-img-top"
             alt="${project.title}"
             loading="lazy"
