@@ -397,6 +397,12 @@ const projects = [
       },    
 
       {
+        type: "arcgis-app",
+        url: "https://storymaps.arcgis.com/stories/7fa0d0d8788245f6a91f36ea45620878?is_embed=true",
+        caption: "Click to View | Metro Phoenix Temperature Study StoryMap"
+      },    
+
+      {
         type: "arcgis-map",
         itemId: "8b76725db658489b9813972cc708ff03",
         caption: "Interpolated temperature surface depicting hottest day in metro Phoenix area in 20-year period, July 11, 2022. Surface interpolated with universal kiriging technique"
