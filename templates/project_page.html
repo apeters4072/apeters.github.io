@@ -359,10 +359,11 @@ if (project.gallery?.length) {
     // ArcGIS Web Maps / Web Scenes
     if (item.type === "arcgis-map") {
       contentHtml = `
-        <div class="ratio ratio-16x9 position-relative">
+        <div class="ratio ratio-16x9">
           <arcgis-embedded-map
             item-id="${item.itemId}"
             theme="light">
+            style="height 100%; width 100%;">
           </arcgis-embedded-map>
         </div>`;
     }
@@ -388,7 +389,7 @@ if (project.gallery?.length) {
 
     return `
       <div class="${columnClass}">
-        <figure class="gallery-card">
+        <figure class="gallery-card d-flex flex-column">
           ${contentHtml}
           <figcaption>${item.caption || ""}</figcaption>
         </figure>
