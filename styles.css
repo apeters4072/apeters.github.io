@@ -165,38 +165,37 @@ body{
   background: #ffffff;
 }
 
-arcgis-embedded-map {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  position: absolute;
-  top: 0;
-  left: 0;
+.gallery-card {
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden;
+  height: 100%;
+  background: #ffffff;
 }
 
-.gallery-card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+.gallery-card .ratio {
+  display: block;
   width: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+arcgis-embedded-map {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
 }
 
 .gallery-card figcaption {
-  padding: 0.75rem 1rem 1rem; 
-  margin-top: 0; 
-  
-  /* Keep existing styles */
-  font-size: .9rem;
-  color: #6c757d;
-  width: 100%;
-  display: block;
-}
-
-.gallery-card .ratio, 
-.gallery-card img, 
-.gallery-card arcgis-embedded-map {
-  width: 100% !important;
-  display: block;
+  flex-grow: 1;
+  padding: 1rem;
+  background: #ffffff;
+  z-index: 10;
+  margin: 0;
+  /* border-top: 1px solid #f0f0f0; /* Optional: tiny separator to prevent visual overlap */
 }
 
 /********************************
