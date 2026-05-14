@@ -167,9 +167,29 @@ body{
 
 .gallery-card {
   position: relative;
+  display: flex;
+  flex-direciton: column;
+  height: 100%;
 }
+
+/* Ensure embedded content behaves like images */
+.gallery-card .ratio,
+.gallery-card iframe,
+.gallery-card arcgis-embedded-map {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
 .gallery-card:hover .iframe-overlay {
   background: rgba(0, 0, 0, 0.03);
+}
+
+.gallery-card figcaption {
+  margin-top: 0.5rem;
+  display: block;
+  flex-grow: 1;
 }
 
 /* Ensures the 'click to open' area covers the iframe preview */
@@ -184,7 +204,9 @@ body{
 }
 
 .ratio {
-  position: relative; /* Necessary for absolute positioning of overlay */
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 /********************************
