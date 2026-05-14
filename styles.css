@@ -165,6 +165,15 @@ body{
   background: #ffffff;
 }
 
+arcgis-embedded-map {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .gallery-card {
   display: flex;
   flex-direction: column;
@@ -173,7 +182,6 @@ body{
 }
 
 .gallery-card figcaption {
-  /* Remove top padding and margin */
   padding: 0.75rem 1rem 1rem; 
   margin-top: 0; 
   
