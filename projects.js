@@ -386,8 +386,8 @@ const projects = [
 
     gallery: [
       {
-        type: "arcgis-app",
-        url: "https://storymaps.arcgis.com/stories/7fa0d0d8788245f6a91f36ea45620878?cover=false",
+        type: "arcgis-map",
+        itemId: "fafa7986999e4a2480d00592770c5b31",
         caption: "Metro Phoenix Temperature Study StoryMap"
       },    
     ],
@@ -477,6 +477,7 @@ const projects = [
       },
       <!-- OR -->
       {
+        <!-- Still buggy, needs work to implement better -->
         type: "arcgis-app",
         url: "https://www.arcgis.com/index.html",
         caption: "item caption"
