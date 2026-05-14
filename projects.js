@@ -379,6 +379,11 @@ const projects = [
  
     links: [
       {
+        label: "Metro Phoenix Temperature Study",
+        url: "https://storymaps.arcgis.com/stories/7fa0d0d8788245f6a91f36ea45620878"
+      },
+      
+      {
         label: "How Kriging Works (ESRI)",
         url: "https://pro.arcgis.com/en/pro-app/3.4/tool-reference/spatial-analyst/how-kriging-works.htm"
       },
@@ -388,7 +393,7 @@ const projects = [
       {
         type: "arcgis-app",
         url: "https://storymaps.arcgis.com/stories/7fa0d0d8788245f6a91f36ea45620878?is_embed=true",
-        caption: "Metro Phoenix Temperature Study StoryMap"
+        caption: "Click to view | Metro Phoenix Temperature Study StoryMap"
       },    
     ],
 
@@ -477,10 +482,9 @@ const projects = [
       },
       <!-- OR -->
       {
-        <!-- Still buggy, needs work to implement better -->
         type: "arcgis-app",
-        url: "https://www.arcgis.com/index.html",
-        caption: "item caption"
+        url: "link?embed=true", (Must add the embed part)
+        caption: "Click to view | item caption"
       },
     ],
 
