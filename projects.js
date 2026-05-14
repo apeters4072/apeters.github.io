@@ -359,8 +359,8 @@ const projects = [
       "school"
     ],
     tags: [
-      "ArcGIS Pro",
       "ArcGIS Online",
+      "ArcGIS Pro",
       "RStudio",
       "Python",
       "Geostatistical Analysis",
