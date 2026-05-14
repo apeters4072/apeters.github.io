@@ -375,7 +375,7 @@ const projects = [
     role: "Lead geospatial analyst and cartographer of a group of 4",
     deliverable: "StoryMap, web maps, charts, graphs, and code scripts",
 
-    objective: "TEST This StoryMap was created for the final examination in GIS-461: Geo Math, Algorithms, and Statistics. The objective of the final was to employ the statical and geostatistical techniques that we learned throughout the semester, and deliver a cohesive view of temperature trends in the region around metro Phoenix.",
+    objective: "This StoryMap was created for the final examination in GIS-461: Geo Math, Algorithms, and Statistics. The objective of the final was to employ the statical and geostatistical techniques that we learned throughout the semester, and deliver a cohesive view of temperature trends in the region around metro Phoenix.",
  
     links: [
       {
@@ -390,12 +390,6 @@ const projects = [
     ],
 
     gallery: [
-      {
-        type: "arcgis-app",
-        url: "https://storymaps.arcgis.com/stories/7fa0d0d8788245f6a91f36ea45620878?is_embed=true",
-        caption: "Click to View | Metro Phoenix Temperature Study StoryMap"
-      },    
-
       {
         type: "arcgis-app",
         url: "https://storymaps.arcgis.com/stories/7fa0d0d8788245f6a91f36ea45620878?is_embed=true",
