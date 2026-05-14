@@ -181,7 +181,7 @@ body{
   font-size: 0.85rem;
   color: var(--muted);
   
-  border-top: 1px solid #eef2f7; 
+  /* border-top: 1px solid #eef2f7; */
 }
 
 .gallery-card .ratio, 
