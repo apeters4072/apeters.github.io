@@ -379,7 +379,7 @@ const projects = [
  
     links: [
       {
-        label: "Metro Phoenix Temperature Study",
+        label: "Metro Phoenix Temperature Study StoryMap",
         url: "https://storymaps.arcgis.com/stories/7fa0d0d8788245f6a91f36ea45620878"
       },
       
@@ -393,7 +393,7 @@ const projects = [
       {
         type: "arcgis-app",
         url: "https://storymaps.arcgis.com/stories/7fa0d0d8788245f6a91f36ea45620878?is_embed=true",
-        caption: "Click to view | Metro Phoenix Temperature Study StoryMap"
+        caption: "Click to View | Metro Phoenix Temperature Study StoryMap"
       },    
     ],
 
@@ -484,7 +484,7 @@ const projects = [
       {
         type: "arcgis-app",
         url: "link?embed=true", (Must add the embed part)
-        caption: "Click to view | item caption"
+        caption: "Click to View | item caption"
       },
     ],
 
