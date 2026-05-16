@@ -205,15 +205,16 @@ a:focus, button:focus, .btn:focus {
 
 /* Dynamic Inner Grid Gallery Cards */
 .project-body .gallery-card {
-  display: flex !important;
-  flex-direction: column !important;
+  display: table !important; /* Force a rigid, non-flex layout structure */
+  table-layout: fixed;
+  width: 100%;
   background: #ffffff;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(0,0,0,.06);
   padding: 0.6rem 0.6rem 0.6rem;
   transition: transform .18s ease;
-  height: 100%;
+  box-sizing: border-box;
 }
 
 .project-body .gallery-card:hover { 
@@ -221,16 +222,26 @@ a:focus, button:focus, .btn:focus {
   box-shadow: 0 10px 26px rgba(0,0,0,.10); 
 }
 
-/* Replaces the layout logic of bootstrap ratio class without breaking the stack */
+/* Force the map wrapper box to act as a strict table row */
 .project-body .arcgis-box {
+  display: table-row;
   width: 100%;
-  aspect-ratio: 16 / 9; /* Clean modern CSS replacement for .ratio-16x9 */
-  border-radius: 10px;
-  overflow: hidden;
   background: #f8f9fa;
 }
 
+/* Ensure the embedded map component recalculates space perfectly */
+.project-body .arcgis-box arcgis-embedded-map,
+.project-body .arcgis-box iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Re-enforces perfect dimensions */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Regular graphic image layout */
 .project-body .gallery-card img { 
+  display: block;
   border-radius: 10px; 
   cursor: zoom-in; 
   width: 100%; 
@@ -239,10 +250,10 @@ a:focus, button:focus, .btn:focus {
   background: #f8f9fa; 
 }
 
+/* Force the caption into its own separate table row track */
 .project-body .gallery-card figcaption { 
-  margin-top: auto; /* Pushes text to bottom safely if things flex scale */
+  display: table-row;
   padding: .75rem .75rem .25rem; 
-  margin-bottom: 0;
   font-size: .9rem; 
   color: #6c757d; 
 }
