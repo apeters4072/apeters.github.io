@@ -205,6 +205,7 @@ a:focus, button:focus, .btn:focus {
 
 /* Dynamic Inner Grid Gallery Cards */
 .project-body .gallery-card {
+  display: block;
   background: #ffffff;
   border-radius: 16px;
   overflow: hidden;
@@ -224,6 +225,7 @@ a:focus, button:focus, .btn:focus {
   background: #f8f9fa; 
 }
 .project-body .gallery-card figcaption { 
+  dispaly: block;
   padding: .75rem .75rem .25rem; 
   margin-bottom: 0;
   font-size: .9rem; 
@@ -273,7 +275,7 @@ arcgis-embedded-map, .arcgis-embedded-map {
 @media (max-width: 991.98px) { .section-dots { display: none; } }
 
 /********************************
- * 5. MISCELLANEOUS PORTRAIT & EASTER EGGS
+ * 5. PORTRAIT
  ********************************/
 .portrait-img {
   width: 80%;
@@ -316,54 +318,6 @@ arcgis-embedded-map, .arcgis-embedded-map {
   border-bottom: 1px solid transparent;
   transition: 0.2s ease;
 }
-
-.easter {
-  position: relative;
-  margin-left: .35rem;
-  text-decoration: none;
-  opacity: .6;
-  color: var(--muted);
-  transition: transform .2s ease, opacity .2s ease, color .2s ease;
-  cursor: help;
-}
-.easter:hover, .easter:focus { 
-  opacity: 1; 
-  transform: rotate(9deg) scale(1.08); 
-  color: var(--brand-strong, #f072a6); 
-}
-.easter::after {
-  content: attr(data-tip);
-  position: absolute;
-  left: 50%;
-  bottom: 125%;
-  transform: translateX(-50%) translateY(4px);
-  background: var(--ink, #222);
-  color: #fff;
-  font-size: .72rem;
-  padding: .25rem .45rem;
-  border-radius: 6px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .15s ease, transform .15s ease;
-  box-shadow: 0 2px 8px rgba(0,0,0,.15);
-}
-.easter:focus::after, .easter:hover::after {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-.easter::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 115%;
-  transform: translateX(-50%);
-  border: 6px solid transparent;
-  border-top-color: var(--ink, #222);
-  opacity: 0;
-  transition: opacity .15s ease;
-}
-.easter:hover::before, .easter:focus::before { opacity: 1; }
 
 @media (prefers-reduced-motion: reduce) {
   .easter { transition: none; }
