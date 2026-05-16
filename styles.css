@@ -23,7 +23,6 @@ body{
 /********************************
  * NAVBAR
  ********************************/
-
 .navbar { border-bottom: 1px solid #e8eef7; }
 .navbar-brand { color: var(--ink); }
 .nav-link { color: var(--muted); }
@@ -59,9 +58,8 @@ body{
 }
 
 /********************************
- * HERO
+ * HERO (MAIN & PROJECT HEROES)
  ********************************/
-
 .hero{
   position: relative;
   min-height: 82vh;
@@ -71,10 +69,29 @@ body{
   text-align: center;
   color: var(--ink);
   isolation: isolate;
-
   background:
     linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
     url("assets/images/header_map.png") center/cover no-repeat;
+}
+
+.project-hero {
+  background:
+    radial-gradient(80% 60% at 50% 0%, rgba(0,0,0,.06), transparent),
+    linear-gradient(180deg, rgba(0,0,0,.02), transparent);
+  border-radius: 1.25rem;
+}
+
+.map-hero {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,.08);
+}
+.map-hero .ratio { --bs-aspect-ratio: 50%; }
+.map-hero img, .map-hero arcgis-embedded-map {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .eyebrow{
@@ -94,20 +111,18 @@ body{
 @keyframes blink{ to { visibility: hidden; } }
 
 /********************************
- * SECTIONS
+ * SECTIONS & LAYOUT BLOCK
  ********************************/
-
 .section { padding: 72px 0; }
 .section-alt { background: var(--brand-soft); }
 .section-header { text-align: center; margin-bottom: 28px; }
 
 .section-title {
-  display: block;      /* Changed from inline-block to block */
+  display: block;
   font-weight: 700;
-  font-size: 2rem;     /* Adjust size to your preference */
+  font-size: 2rem;
   color: var(--ink);
   margin-bottom: 0.5rem;
-  /* Removed padding, background, border, and box-shadow */
 }
 
 .section-subtitle { 
@@ -115,10 +130,64 @@ body{
   font-size: 1.1rem;
 }
 
+.project-body { max-width: 860px; margin: 0 auto; }
+.section-block {
+  padding: 2.5rem 0;
+  border-top: 1px solid #e3eaf4;
+}
+.section-block:first-of-type { border-top: none; }
+
+.meta-card {
+  padding: 1rem 1.25rem;
+  border-radius: .75rem;
+  background: #ffffff;
+  border: 1px solid #e3eaf4;
+  font-size: .95rem;
+}
+.badge-custom-blue { background-color: #0A4D91 !important; color: #ffffff !important; }
+
+/********************************
+ * SIDE DOT NAVIGATION
+ ********************************/
+.section-dots {
+  position: fixed;
+  top: 50%;
+  right: 2.5rem;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  z-index: 1040;
+}
+
+.section-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #c7d7f7;
+  background: #f3f6ff;
+  cursor: pointer;
+  transition: all .2s ease;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-dot.is-active {
+  background: #0d6efd;
+  border-color: #0d6efd;
+  transform: scale(1.2);
+}
+
+.section-dot--top i { font-size: 0.55rem; color: #c7d7f7; }
+.section-dot--top.is-active i { color: #ffffff; }
+
+@media (max-width: 991.98px) { .section-dots { display: none; } }
+
 /********************************
  * PROJECT FILTERS
  ********************************/
-
 .btn-filter{
   border:1px solid #d9e6f7;
   background:#fff;
@@ -134,9 +203,8 @@ body{
 }
 
 /********************************
- * PROJECT CARDS
+ * CARDS & PORTFOLIO IMAGES
  ********************************/
-
 .card{
   border:1px solid #e6eef8;
   border-radius: var(--radius);
@@ -147,7 +215,6 @@ body{
 .card-title{ margin-bottom:.35rem; }
 .card-text{ color: var(--muted); }
 
-/* Hover effect for project cards */
 .project-card .card {
   transition:
     transform 0.25s ease,
@@ -165,12 +232,29 @@ body{
   background: #ffffff;
 }
 
+/* Consolidated Gallery Card Styling */
 .gallery-card {
   display: flex !important;
   flex-direction: column !important;
-  overflow: hidden;
-  height: 100%;
   background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  padding: 0.6rem 0.6rem 0;
+  transition: transform .18s ease;
+  height: 100%;
+}
+
+.gallery-card:hover { 
+  transform: translateY(-4px); 
+  box-shadow: 0 10px 26px rgba(0,0,0,.10); 
+}
+
+.gallery-card img { 
+  border-radius: 10px; 
+  cursor: zoom-in; 
+  width: 100%; 
+  background: #f8f9fa; 
 }
 
 .gallery-card .ratio {
@@ -180,6 +264,19 @@ body{
   flex-shrink: 0;
 }
 
+.gallery-card figcaption {
+  flex-grow: 1;
+  padding: .75rem .75rem 1rem; 
+  font-size: .9rem; 
+  color: #6c757d;
+  background: #ffffff;
+  z-index: 10;
+  margin: 0;
+}
+
+/********************************
+ * MAPS & LIGHTBOX SPECIFICS
+ ********************************/
 arcgis-embedded-map {
   position: absolute !important;
   top: 0;
@@ -189,19 +286,17 @@ arcgis-embedded-map {
   display: block !important;
 }
 
-.gallery-card figcaption {
-  flex-grow: 1;
-  padding: 1rem;
-  background: #ffffff;
-  z-index: 10;
-  margin: 0;
-  /* border-top: 1px solid #f0f0f0; /* Optional: tiny separator to prevent visual overlap */
+.arcgis-embedded-map {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
+
+.modal-dark-bg { background-color: #000000; }
 
 /********************************
  * SKILLS
  ********************************/
-
 .skill{
   background:#fff;
   border:1px solid #e6eef8;
@@ -214,14 +309,12 @@ arcgis-embedded-map {
 /********************************
  * FOOTER
  ********************************/
-
 .footer{
   padding: 64px 0;
   background: #fff;
   border-top:1px solid #e8eef7;
 }
 
-/* Footer attribution */
 .footer .hero-credit{
   position: static;
   margin-top: 10px;
@@ -248,13 +341,11 @@ arcgis-embedded-map {
 /********************************
  * MISC
  ********************************/
-
 a:focus, button:focus, .btn:focus{
   outline: none;
   box-shadow: 0 0 0 3px var(--ring);
 }
 
-/* Portrait image */
 .portrait-img {
   width: 80%;
   max-width: 320px;
@@ -283,7 +374,6 @@ a:focus, button:focus, .btn:focus{
 .easter:hover,
 .easter:focus{ opacity:1; transform:rotate(9deg) scale(1.08); color:var(--brand-strong,#f072a6); }
 
-/* single tooltip */
 .easter::after{
   content: attr(data-tip);
   position: absolute;
@@ -307,7 +397,6 @@ a:focus, button:focus, .btn:focus{
   transform: translateX(-50%) translateY(0);
 }
 
-/* tiny arrow */
 .easter::before{
   content:"";
   position:absolute;
@@ -319,10 +408,9 @@ a:focus, button:focus, .btn:focus{
   opacity:0;
   transition: opacity .15s ease;
 }
-.easter:hover::before,
-.easter:focus::before{ opacity:1; }
+  .easter:hover::before,
+  .easter:focus::before{ opacity:1; }
 
-/* motion/accessibility niceties */
 @media (prefers-reduced-motion: reduce){
   .easter{ transition:none; }
   .easter::after{ transition:none; }
