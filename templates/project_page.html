@@ -239,7 +239,6 @@
       let contentHtml = "";
 
       if (item.type === "arcgis-map") {
-        // REMOVED .ratio helper; added arcgis-box container
         contentHtml = `
           <div class="arcgis-box">
             <arcgis-embedded-map
@@ -250,7 +249,6 @@
       }
 
       else if (item.type === "arcgis-app") {
-        // REMOVED .ratio helper; added arcgis-box container
         contentHtml = `
           <div class="arcgis-box" style="position: relative;">
             <div class="iframe-overlay" onclick="openMapModal('${item.url}', '${item.caption}')" 
@@ -264,7 +262,8 @@
         contentHtml = `
           <img
             src="../${item.src}"
-            alt="${item.caption || 'Gallery Image'}">`;
+            alt="${item.caption || 'Gallery Image'}">`;"
+            style="width: 100%; aspect-ratio: 16 / 9; object-fit: contain !important; background: #f8f9fa;">`;
       }
 
       return `
