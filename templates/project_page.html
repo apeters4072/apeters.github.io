@@ -350,27 +350,27 @@
   const modalIframeContainer = document.getElementById('modal-iframe-container');
   const modalIframe = document.getElementById('modal-iframe');
   const modalCaption = document.querySelector('.modal-caption');
+  const modalBody = document.querySelector('.modal-body');
 
   window.openMapModal = function(url, caption) {
-    modalImg.classList.add('d-none');
-    modalIframeContainer.classList.remove('d-none');
-    modalBody.classList.remove('d-flex', 'flex-column');
+    modalImg.classList.add('d-none');                   // Hide regular image
+    modalIframeContainer.classList.remove('d-none');    // Show iframe layout container
+    modalBody.classList.remove('d-flex', 'flex-column', 'align-items-center'); // Clear image spacing
+    
     modalIframe.src = url;
     modalCaption.textContent = caption;
-    bsModal.show();
+    bsModal.show();                                    // Launch the large modal view
   };
 
   document.querySelectorAll('.gallery-card img').forEach(img => {
     img.addEventListener('click', () => {
-      modalIframeContainer.classList.add('d-none');
-      modalImg.classList.remove('d-none');
-
-      const modalBody = document.querySelector('.modal-body');
+      modalIframeContainer.classList.add('d-none');    // Hide iframe layout container
+      modalImg.classList.remove('d-none');             // Show image elements
       modalBody.classList.add('d-flex', 'flex-column', 'align-items-center');
       
       modalImg.src = img.src;
       modalCaption.textContent = img.alt;
-      modalIframe.src = "";
+      modalIframe.src = "";                            // Clear iframe to kill background processes
       bsModal.show();
     });
   });
@@ -379,9 +379,7 @@
     modalIframe.src = "";
     modalImg.classList.add('d-none');
     modalIframeContainer.classList.add('d-none');
-    
-    const modalBody = document.querySelector('.modal-body');
-    modalBody.classList.add('d-flex', 'flex-column', 'align-items-center');
+    modalBody.classList.remove('d-flex', 'flex-column', 'align-items-center');
   });
 </script>
 </body>
