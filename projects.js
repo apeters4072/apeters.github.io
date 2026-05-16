@@ -399,13 +399,13 @@ const projects = [
       {
         type: "arcgis-map",
         itemId: "8b76725db658489b9813972cc708ff03",
-        caption: "Interpolated temperature surface depicting hottest day in metro Phoenix area in 20-year period, July 11, 2022. Surface interpolated with universal kiriging technique"
+        caption: "Interpolated temperature surface depicting hottest day in metro Phoenix area in 20-year period, July 11, 2022."
       },
 
       {
         type: "arcgis-map",
         itemId: "c14a8b6ee7d24e8083bb2130975ddc0d",
-        caption: "Interpolated rate of change surface depicitng the average rate of change per year in metro Phoenix area in 20-year period. Surface intrpolated with optimized kriging technique"
+        caption: "Interpolated rate of change surface depicitng the average rate of change per year in metro Phoenix area."
       },
 
       {
