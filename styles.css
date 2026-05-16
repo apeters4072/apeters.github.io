@@ -205,31 +205,48 @@ a:focus, button:focus, .btn:focus {
 
 /* Dynamic Inner Grid Gallery Cards */
 .project-body .gallery-card {
-  display: block;
+  display: grid !important; /* Force grid layout */
+  grid-template-rows: auto 1fr; /* Row 1 (Map/Image) fits content, Row 2 (Caption) takes the rest */
   background: #ffffff;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(0,0,0,.06);
-  padding: 0.6rem 0.6rem 0;
+  padding: 0.6rem 0.6rem 0.6rem; /* Restored bottom card padding */
   transition: transform .18s ease;
   height: 100%;
 }
+
 .project-body .gallery-card:hover { 
   transform: translateY(-4px); 
   box-shadow: 0 10px 26px rgba(0,0,0,.10); 
 }
+
+/* Ensure the wrapper box respects its grid row assignment */
+.project-body .gallery-card .ratio {
+  grid-row: 1;
+  position: relative;
+  z-index: 1; /* Keeps map elements contained */
+}
+
 .project-body .gallery-card img { 
+  grid-row: 1;
   border-radius: 10px; 
   cursor: zoom-in; 
   width: 100%; 
   background: #f8f9fa; 
 }
+
+/* Push the caption explicitly into the second grid row */
 .project-body .gallery-card figcaption { 
-  dispaly: block;
+  grid-row: 2;
+  display: block !important;
+  position: relative;
+  z-index: 10; /* Guarantees text sits firmly ABOVE any trailing canvas overflow */
   padding: .75rem .75rem .25rem; 
   margin-bottom: 0;
   font-size: .9rem; 
   color: #6c757d; 
+  background: #ffffff; /* Prevents map canvas transparency leakage */
 }
 
 /* Base Esri Asset Overrides */
