@@ -454,7 +454,7 @@ const projects = [
       "ArcGIS Pro",
       "Cartography",
     ],
-    githubLink: "https://github.com/apeters4072/",
+    githubLink: null,
     featured: true,
     year: 2026,
 
