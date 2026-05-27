@@ -113,7 +113,7 @@ function renderProjects(projectArray) {
         <div class="card h-100 border-0 shadow-sm">
 
           <img
-            src="${project.hero.src || "assets/images/header_map.png"}"
+            src="${project.hero.src || "assets/projects/World Map - Political/World_Map_Political.png"}"
             class="card-img-top"
             alt="${project.title}"
             loading="lazy"
