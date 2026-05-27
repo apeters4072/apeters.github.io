@@ -75,7 +75,7 @@ a:focus, button:focus, .btn:focus {
   isolation: isolate;
   background:
     linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
-    url("assets/projects/World Map - Political/World_Map_Political.png") center/cover no-repeat;
+    url("assets/images/header_map.png") center/cover no-repeat;
 }
 
 .eyebrow {
