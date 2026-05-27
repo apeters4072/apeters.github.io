@@ -17,7 +17,7 @@ const projects = [
       "Cartography"
     ],
     githubLink: null,
-    featured: true,
+    featured: false,
     year: 2025,
 
     // Project Page elements
@@ -431,6 +431,61 @@ const projects = [
     sources: [
       "Temperature data | AZMET, University of Arizona Cooperative Extension",
       "Land Use/Land Cover (LULC) | ESRI Living Atlas of the World",
+    ],
+      
+  },
+
+  //*******************************************************************************
+
+  {
+    // Project Information
+    id: "world-map-political",
+    title: "World Map - Political",
+    description: "Depicting the Countries of the World",
+    hero: {
+      type: "image",
+      src: "assets/projects/World Map - Political/World_Map_Political.png",
+      caption: "World Map - Political"
+    },
+    category: [
+      "carto",
+    ],
+    tags: [
+      "ArcGIS Pro",
+      "Cartography",
+    ],
+    githubLink: "https://github.com/apeters4072/",
+    featured: true,
+    year: 2026,
+
+    // Project Page elements
+    summary: "I created this map to the exact size of my PC monitor, allowing me to set it as the background without compromising resolution. This map depicts country boundaries and includes disputed areas.",
+    time: "2 weeks",
+    role: "Individual",
+    deliverable: "Softcopy static map",
+
+    objective: "Create a world map to a specified size, focusing on improving my cartographic skills by balancing a dense quantity of text information and cartographic symbols.",
+
+    gallery: [
+      {
+        type: "image",
+        src: "assets/projects/World Map - Political/World_Map_Political.png",
+        caption: "World Map - Political"
+      },    
+    ],
+
+    method: [
+      "Establish the size of the map and explore data requirements",
+      "General cartographic refinements, such as feature class thinning",
+      "Convert labels to annotations and manually adjust labels",
+      "Ingets supplemental data to fill visual gaps, refine and adjust labels",
+      "Create inset maps and complete marginalia",
+    ],
+    
+    sources: [
+      "Vector Data | NaturalEarth",
+      "Global Hillshade | Esri",
+      "Text Info | Reference World Atlas, 11th Edition, DK",
     ],
       
   },
