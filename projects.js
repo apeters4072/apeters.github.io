@@ -71,7 +71,7 @@ const projects = [
     
     sources: [
       "Roads, Boundaries | OpenStreetMap",
-      "Boudaries, Hypso Tint | NaturalEarth",
+      "Boundaries, Hypso Tint | NaturalEarth",
       "Elevation data | USGS",
       "Hydrography data | USGS",
       "Text Information | Wikipedia",
@@ -478,7 +478,7 @@ const projects = [
       "Establish the size of the map and explore data requirements",
       "General cartographic refinements, such as feature class thinning",
       "Convert labels to annotations and manually adjust labels",
-      "Ingets supplemental data to fill visual gaps, refine and adjust labels",
+      "Ingest supplemental data to fill visual gaps, refine and adjust labels",
       "Create inset maps and complete marginalia",
     ],
     
@@ -491,6 +491,52 @@ const projects = [
   },
 
   //*******************************************************************************
+  
+  {
+    // Project Information
+    id: "10-week-mapping-challenge",
+    title: "10 Week Mapping Challenge",
+    description: "Cartographic expression over the course of 10 weeks",
+    hero: {
+      type: "image",
+      src: "assets/projects/10 Week Mapping Challenge/10WMC_Week-1_Points.png",
+      caption: "Week 1: Points - The lighthouses of the world."
+    },
+    category: [
+      "carto",
+    ],
+    tags: [
+      "ArcGIS Pro",
+      "Cartography",
+    ],
+    githubLink: null,
+    featured: false,
+    year: 2026,
+
+    // Project Page elements
+    summary: "The 10 Week Mapping Challenge is an in-house challenge for the GIS students at Delta State University, where the goal is to create a unique map once a week, for 10 weeks.",
+    time: "One map a week, for 10 weeks",
+    role: "Individual",
+    deliverable: "Softcopy static maps",
+
+    gallery: [
+      {
+        type: "image",
+        src: "assets/projects/10 Week Mapping Challenge/10WMC_Week-1_Points.png",
+        caption: "Week 1: Points - The lighthouses of the world"
+      },    
+    ],
+    
+    sources: [
+      "Lighthouses | OpenStreetMap",
+      "Boundaries | NaturalEarth",
+    ],
+      
+  },
+
+  //*******************************************************************************
+
+  
 /*
 
   {
