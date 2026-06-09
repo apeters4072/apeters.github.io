@@ -617,6 +617,75 @@ const projects = [
   },
 
   //*******************************************************************************
+
+  {
+    // Project Information
+    id: "deaths-by-fire",
+    title: "2017 Deaths by Fire",
+    description: "Exploring the statistics behind fire deaths",
+    hero: {
+      type: "image",
+      src: "assets/projects/2017 Deaths by Fire/2017 Deaths by Fire (Remastered).png",
+      caption: "Fire Deaths, Rates, and Relative Risk by state (2017)"
+    },
+    category: [
+      "data-science",
+      "school"
+    ],
+    tags: [
+      "ArcGIS Pro",
+      "Disaster",
+      "Fire",
+    ],
+    githubLink: null,
+    featured: false,
+    year: 2023,
+
+    // Project Page elements
+    summary: "Using data from the U.S. Fire Administration, this map explores each states relationship with fire and risk.",
+    time: "One week",
+    role: "Individual",
+    deliverable: "Static softcopy",
+
+    objective: "To explore presenting data through multiple perspectives with chloropleth maps. Each map sought to use color in a meaningful way, reducing the burden on the reader to understand the implications of the map.",
+ 
+    links: [
+      {
+        label: "Fire Death and injury Risk - U.S. Fire Administration",
+        url: "https://www.usfa.fema.gov/statistics/deaths-injuries/"
+      },
+
+      {
+        label: "Fire in the United States 2008-2017 - U.S. Fire Administration",
+        url: "https://www.usfa.fema.gov/downloads/pdf/publications/fius20th.pdf"
+      },
+
+    ],
+
+    gallery: [
+      {
+        type: "image",
+        src: "assets/projects/2017 Deaths by Fire/2017 Deaths by Fire (Remastered).png",
+        caption: "Fire Deaths, Rates, and Relative Risk by state (2017)"
+      },    
+    ],
+
+    method: [
+      "From the Fire in the US 2008-2017 report, transcribe the data per state to an Excel document",
+      "In ArcGIS Pro, join a US States feature class to the fire deaths Excel created in Step 1",
+      "Symbolize a chloropleth map per data perspective",
+      "Assemble the layout, including textual context to orient a reader",
+    ],
+    
+    sources: [
+      "Fire Death, Rates, and Relative Risk (2017) | U.S. Fire Administration",
+      "Boundaries | Natural Earth",
+    ],
+      
+  },
+
+  //*******************************************************************************
+  
   
 /*
 
