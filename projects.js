@@ -558,9 +558,10 @@ const projects = [
     hero: {
       type: "image",
       src: "assets/projects/Animating NDVI/NDVI Animation.gif",
-      caption: "Animation of Normalized Difference Vegetation Index of Cleveland, MS"
+      caption: "Animation of Normalized Difference Vegetation Index (NDVI) of Cleveland, MS"
     },
     category: [
+      "geo-analysis",
       "programming",
       "remote",
       "school"
@@ -634,7 +635,7 @@ const projects = [
     ],
     tags: [
       "ArcGIS Pro",
-      "Disaster",
+      "Chloropleth",
       "Fire",
     ],
     githubLink: null,
@@ -685,7 +686,71 @@ const projects = [
   },
 
   //*******************************************************************************
-  
+
+  {
+    // Project Information
+    id: "line-fire-nbr",
+    title: "Line Fire NBR",
+    description: "Mapping the extent of the 'Line Fire' wildfire",
+    hero: {
+      type: "image",
+      src: "assets/projects/Line Fire NBR/LineFire_NBR.png",
+      caption: "Normalized Burn Ratio (NBR) of the 'Line Fire' wildfire"
+    },
+    category: [
+      "geo-analysis",
+      "programming",
+      "remote",
+      "school"
+    ],
+    tags: [
+      "RStudio",
+      "Remote Sensing",
+      "Fire",
+      "NBR",
+    ],
+    githubLink: null,
+    featured: false,
+    year: 2024,
+
+    // Project Page elements
+    summary: "Using non-visual means to identify the extent and intensity of the 'Line Fire' wildfire in San Bernadino, CA on September 17, 2024. NBR is measured from 1 to -1, representing the lowest degree of burn damage to the highest degree of burn damage respectively.",
+    time: "One week",
+    role: "Individual",
+    deliverable: "Softcopy static map",
+
+    objective: "From Landsat imagery, identify the extent and intensity of a wildfire through the Normalized Burn Ratio (NBR), which can be used to assess a wildfire when smoke obscures vision on typical electro-optical imagery.",
+ 
+    links: [
+      {
+        label: "Normalized Burn Ratio - USGS",
+        url: "https://www.usgs.gov/landsat-missions/landsat-normalized-burn-ratio"
+      },
+    ],
+
+    gallery: [
+      {
+        type: "image",
+        src: "assets/projects/Line Fire NBR/LineFire_NBR.png",
+        caption: "Normalized Burn Ratio (NBR) of the 'Line Fire' wildfire"
+      },    
+    ],
+
+    method: [
+      "Ingest Landsat 9 imagery of the wildfire, and select out the necessary bands (Bands 5 and 7, which is NIR and SWIR 2 respectively)",
+      "Crop the rasters to the area of interest, ensuring consistency when doing raster math",
+      "Calculate the NBR (Band 5 - Band 7 / Band 5 + Band 7)",
+      "Assign the resulting raster a red-yellow-green color ramp",
+      "Export the NBR raster",
+    ],
+    
+    sources: [
+      "Landsat 9 | USGS",
+    ],
+      
+  },
+
+  //*******************************************************************************
   
 /*
 
