@@ -499,8 +499,8 @@ const projects = [
     description: "Cartographic expression over the course of 10 weeks",
     hero: {
       type: "image",
-      src: "assets/projects/10 Week Mapping Challenge/10WMC_Week-1_Points.png",
-      caption: "Week 1: Points - The lighthouses of the world."
+      src: "assets/projects/10 Week Mapping Challenge/10WMC_Week-2_Lines.png",
+      caption: "Week 2: Lines - A Joy Plot depiction of Iran"
     },
     category: [
       "carto",
@@ -514,22 +514,36 @@ const projects = [
     year: 2026,
 
     // Project Page elements
-    summary: "The 10 Week Mapping Challenge is an in-house challenge for the GIS students at Delta State University, where the goal is to create a unique map once a week, for 10 weeks.",
+    summary: "The 10 Week Mapping Challenge is an in-house challenge for the GIS students at Delta State University, where the goal is to create a unique map once a week, for 10 weeks. The challenge began on June 1st, so be patient if you do not see all 10 maps yet!",
     time: "One map a week, for 10 weeks",
     role: "Individual",
     deliverable: "Softcopy static maps",
+
+    links: [
+      {
+        label: "Joy Plots in ArcGIS Pro - Ken Fields",
+        url: "https://www.esri.com/arcgis-blog/products/arcgis-pro/mapping/joy-plots-in-arcgis-pro"
+      },
+    ],
 
     gallery: [
       {
         type: "image",
         src: "assets/projects/10 Week Mapping Challenge/10WMC_Week-1_Points.png",
         caption: "Week 1: Points - The lighthouses of the world"
-      },    
+      },  
+      
+      {
+        type: "image",
+        src: "assets/projects/10 Week Mapping Challenge/10WMC_Week-2_Lines.png",
+        caption: "Week 2: Lines - A Joy Plot depiction of Iran"
+      }, 
     ],
     
     sources: [
       "Lighthouses | OpenStreetMap",
       "Boundaries | NaturalEarth",
+      "Elevation | Esri",
     ],
       
   },
