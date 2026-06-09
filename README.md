@@ -13,10 +13,11 @@ I’m an upper-level GIS student at Delta State University, focused on:
 This site is where I share my projects, experiments, and professional journey.  
 
 ## 📂 Repo Structure
-- `assets`
-  | `documents` — Resume and other documents
-  | `images` — Site images and thumbnails
-  | `projects` — Projects and their pages
+- `archive` — Retired materials
+- `assets` <br />
+  | `documents` — Resume and other documents <br />
+  | `images` — Site images and thumbnails <br />
+  | `projects` — Projects and their pages <br />
 - `templates` — Templates for easy expansion
 - `README.md` — You're reading this!
 - `index.html` — Homepage of the portfolio
