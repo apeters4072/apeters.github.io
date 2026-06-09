@@ -606,7 +606,7 @@ const projects = [
       "Ingest Landsat images and select out the necessary bands (Bands 4 and 5)",
       "Crop the rasters to the area of interest, ensuring consistency when doing raster math",
       "Create the NDVI images (For each Landsat image, use the equation: Band 5 - Band 4 / Band 5 + Band 4)",
-      "Interpolate NDVI images between sequential Landsat images. Fid the difference between two sequential NDVI images, and divide that by a chosen step count. Then, for each step, add those values to the earlier images, creating a smooth transition between key frames.",
+      "Interpolate NDVI images between sequential Landsat images. Find the difference between two sequential NDVI images, and divide that by a chosen step count. Then, for each step, add those values to the earlier images, creating a smooth transition between key frames.",
       "Sort all images in chronological order, and export as .gif",
     ],
     
