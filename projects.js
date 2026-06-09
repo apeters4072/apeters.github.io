@@ -581,7 +581,7 @@ const projects = [
     role: "Individual",
     deliverable: "Softcopy animation",
 
-    objective: "From Landsat imagery, derive a series of NDVI images over the course of a year. Then, interpolate additional images from the NDVI images to improve animation smoothness. Lastly, create an animation from all of the NDVI images as a .gif",
+    objective: "From Landsat 9 imagery, derive a series of NDVI images over the course of a year. Then, interpolate additional images from the NDVI images to improve animation smoothness. Lastly, create an animation from all of the NDVI images as a .gif",
  
     links: [
       {
@@ -604,15 +604,15 @@ const projects = [
     ],
 
     method: [
-      "Ingest Landsat images and select out the necessary bands (Bands 4 and 5)",
+      "Ingest Landsat 9 images and select out the necessary bands (Bands 4 and 5)",
       "Crop the rasters to the area of interest, ensuring consistency when doing raster math",
-      "Create the NDVI images (For each Landsat image, use the equation: Band 5 - Band 4 / Band 5 + Band 4)",
-      "Interpolate NDVI images between sequential Landsat images. Find the difference between two sequential NDVI images, and divide that by a chosen step count. Then, for each step, add those values to the earlier images, creating a smooth transition between key frames.",
+      "Create the NDVI images (For each Landsat 9 image, use the equation: Band 5 - Band 4 / Band 5 + Band 4)",
+      "Interpolate NDVI images between sequential Landsat 9 images. Find the difference between two sequential NDVI images, and divide that by a chosen step count. Then, for each step, add those values to the earlier images, creating a smooth transition between key frames.",
       "Sort all images in chronological order, and export as .gif",
     ],
     
     sources: [
-      "Landsat | USGS",
+      "Landsat 9 | USGS",
     ],
       
   },
