@@ -550,6 +550,73 @@ const projects = [
 
   //*******************************************************************************
 
+  {
+    // Project Information
+    id: "animaing-NDVI",
+    title: "Animating NDVI",
+    description: "Interpolating NDVI images to create a smooth animation",
+    hero: {
+      type: "image",
+      src: "assets/projects/Animating NDVI/NDVI Animation.gif",
+      caption: "Animation of Normalized Difference Vegetation Index of Cleveland, MS"
+    },
+    category: [
+      "programming",
+      "remote",
+      "school"
+    ],
+    tags: [
+      "RStudio",
+      "Remote Sensing",
+      "NDVI",
+    ],
+    githubLink: null,
+    featured: false,
+    year: 2024,
+
+    // Project Page elements
+    summary: "A series of Normalized Difference Vegetation Index (NDVI) images over Cleveland, MS. The animation shows the change in vegetation over the course of a year.",
+    time: "One week",
+    role: "Individual",
+    deliverable: "Softcopy animation",
+
+    objective: "From Landsat imagery, derive a series of NDVI images over the course of a year. Then, interpolate additional images from the NDVI images to improve animation smoothness. Lastly, create an animation from all of the NDVI images as a .gif",
+ 
+    links: [
+      {
+        label: "Landsat NDVI - USGS",
+        url: "https://www.usgs.gov/landsat-missions/landsat-normalized-difference-vegetation-index"
+      },
+
+      {
+        label: "NDVI - NASA",
+        url: "https://www.earthdata.nasa.gov/topics/land-surface/normalized-difference-vegetation-index-ndvi"
+      },
+    ],
+
+    gallery: [
+      {
+        type: "image",
+        src: "assets/projects/Animating NDVI/NDVI Animation.gif",
+        caption: "Animation of Normalized Difference Vegetation Index of Cleveland, MS"
+      },    
+    ],
+
+    method: [
+      "Ingest Landsat images and select out the necessary bands (Bands 4 and 5)",
+      "Crop the rasters to the area of interest, ensuring consistency when doing raster math",
+      "Create the NDVI images (For each Landsat image, use the equation: Band 5 - Band 4 / Band 5 + Band 4)",
+      "Interpolate NDVI images between sequential Landsat images. Fid the difference between two sequential NDVI images, and divide that by a chosen step count. Then, for each step, add those values to the earlier images, creating a smooth transition between key frames.",
+      "Sort all images in chronological order, and export as .gif",
+    ],
+    
+    sources: [
+      "Landsat | USGS",
+    ],
+      
+  },
+
+  //*******************************************************************************
   
 /*
 
