@@ -444,7 +444,7 @@ const projects = [
     description: "Depicting the Countries of the World",
     hero: {
       type: "image",
-      src: "assets/projects/World Map - Political/World_Map_Political.png",
+      src: "assets/projects/World Map - Political/World_Map_Wallpaper.png",
       caption: "World Map - Political"
     },
     category: [
@@ -469,7 +469,7 @@ const projects = [
     gallery: [
       {
         type: "image",
-        src: "assets/projects/World Map - Political/World_Map_Political (Low Res).png",
+        src: "assets/projects/World Map - Political/World_Map_Wallpaper (Low Res).png",
         caption: "World Map - Political"
       },    
     ],
