@@ -469,7 +469,7 @@ const projects = [
     gallery: [
       {
         type: "image",
-        src: "assets/projects/World Map - Political/World_Map_Political.png",
+        src: "assets/projects/World Map - Political/World_Map_Political (Low Res).png",
         caption: "World Map - Political"
       },    
     ],
